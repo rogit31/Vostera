@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>http://vostera.net/</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>http://vostera.net/index.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/maps.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/playercharacters.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/houserules.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/contact.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/login.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/places/places.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/history/history.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/people/people.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/items/items.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/gods/gods.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/organizations/organizations.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/plot/plot.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/statblocks/statblocks.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/meta/meta.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/places/adenville.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/places/aegur.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/places/ameliankingdom.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/places/avendor.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/places/fishermansrepose.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/places/juliusbnb.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/places/kairasmerchantring.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/places/portdalia.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/places/thesoftspot.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/places/vloren.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/history/historyofvostera.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/history/oneyearwar.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/history/pheonixgate.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/history/thousandyearwinter.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/history/titanicwar.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/people/adamfawcett.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/people/alexanderhasan.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/people/anatoliosvishal.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/people/astridleapol.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/people/barackshelano.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/people/bettyhasenford.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/people/dareej.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/people/devumal.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/people/elwynmardan.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/people/gerald.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/people/headmastervonn.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/people/jayforenthro.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/people/karishuhrat.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/people/khavaamina.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/people/leucisaemon.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/people/nolaashir.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/people/peliashasenford.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/people/planewalker.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/people/raoulragimund.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/items/facelesscloak.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/items/liselos.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/items/tripal.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/gods/aria.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/gods/ashirianpantheon.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/gods/kaira.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/gods/kaos.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/gods/layla.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/gods/lua.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/gods/maat.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/gods/mila.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/gods/sola.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/gods/vero.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/organizations/academyarcanum.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/organizations/ameliankingdom.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/organizations/amelianliberationfront.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/organizations/ashirempire.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/organizations/kaanitetribes.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/organizations/orderoftheblacksun.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/organizations/peacekeepers.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/organizations/silvermoonchurch.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/organizations/solistchurch.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/organizations/underbelly.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/plot/recaps.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/statblocks/../../lore.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/meta/aethericdisturbance.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/meta/drain_condition.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/people/hudalfamily.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/organizations/solascouncil.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/places/titanfall.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>http://vostera.net/html/lore/people/titans.php</loc>
+  <lastmod>2024-01-28T18:47:47+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+
+
+</urlset>

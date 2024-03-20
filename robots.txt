@@ -1,0 +1,5 @@
+User-Agent: * Disallow: /html/authenticate.php
+User-Agent: * Disallow: /html/login.php
+User-Agent: * Disallow: /html/logout.php
+User-Agent: * Disallow: /html/articletemplate.php
+Sitemap: /vosterasitemap.xml
