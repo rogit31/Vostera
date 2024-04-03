@@ -29,7 +29,9 @@
         <main>
             <div class="article-tile">
                 <h1>Sola's Council</h1>
+                <p>The highest court of the Ashir Empire.</p>
             </div>
+            
 
 
         </main>

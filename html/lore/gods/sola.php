@@ -31,7 +31,7 @@
         <main>
             <div class="article-tile">
                 <h1>Sola, The Sunmother</h1>
-                <p>The Sunmother, Sola, is the goddess of the sun and its light. She is associated with ideas of peace, community, prosperity and fertility.</p>
+                <p>The Sunmother, Sola, is the goddess of the sun, of life, of justice, of agriculture, of civilization and culture. She is associated with ideas of peace, community, prosperity and fertility.</p>
 
 
                 <blockquote>"Like children in their mother's arms, we all bathe in Sola's light and protection."</blockquote>

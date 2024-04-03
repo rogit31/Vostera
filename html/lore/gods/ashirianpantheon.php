@@ -13,7 +13,7 @@
         </header>
 
         <ul class="breadcrumb">
-            <li><a href="../../index.php">Home</a></li>
+            <li><a href="/index.php">Home</a></li>
             <li><a href="../../lore.php">Lore</a></li>
             <li><a href="gods.php">Gods</a></li>
             <li>Ashirian Pantheon</li>

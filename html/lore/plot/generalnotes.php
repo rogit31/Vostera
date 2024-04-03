@@ -9,7 +9,7 @@
 <body>
     <div id="wrapper">
         <header id="1">
-        <?php include('../../../header.php') ?>
+            <?php include('../../../header.php') ?>
         </header>
         <?php if (!isset($_SESSION['loggedin'])) {
             header('Location: ../../lore.php');
@@ -27,35 +27,33 @@
             </ol>
         </div>
         <main>
-        <div class="article-tile">
+            <div class="article-tile">
                 <h1>General Notes</h1>
-                <h2 id="2">Potential Scenes</h2>
+                <h2 id="2">To-think-of:</h2>
                 <hr class="solid">
                 <ul>
-                    <li>Hemlock sees more visions from Vero</li>
-                    <li>Lucina nightmare?</li>
-                    <li>Hemlock's mom is alive?</li>
-                    <li>OBS wants to find information on tomes of genesis</li>
-                    <li>New letter from meg's brother</li>
-                    <li>Plan in more detail Raoul's character overall as well as his reaction. Why is he at the underbelly waiting for them? Why did his eyes turn green? What exactly did both of them cooperate on? -- The tripal stone to be delivered to the ALF was their original mission, encouraging attacks on the empire to stabilize Argent's position in the council. There's a reason we gave up chase easily. Unfortunately I was not there to oversee the rest of the exchange...</li>
-                    <li>She requires Khava, so she will for sure take her alive - Khava would've tried to take her own life-.</li>
-                    <li>The other members are either killed or taken. Those who resisted where disintegrated.</li>
-                    <li>Raoul gives them a lecture on the power balance they upset by challenging Vespera</li>
-                    <li>"Since you have bit the lion's tail, show me you can take it down. Or suffer the vengeance you so deserve."</li>
-                    <li>They either convince him to stand down or fight him</li>
-                    <li>After which if they lose, he tells them to get stronger and get back to him when they can defeat him.</li>
-                    <li>If they do beat him, he gives up and agrees to help them under the condition that they: free the prisoners and do right by them, stop war to aegur, and potentially negotiate empirical pardon. </li>
-                    <li>If they agree, he gives them the information that they want.</li>
-                    <li>Raoul would know of: Vespera's plans to destabalize Ashirian politics to stage a coup, to wage war on Aegur</li>
-                    <li>He also has an informant that found out the spot of the book one of the books of genesis</li>
-                    <li>He doesn't know what this book is, but vespera seemed very keen on finding the next one</li>
-                    <li>There are nine books total, three of them relate to war. One of them was stolen by the OBS during the attacks on Avendor. So there are two books remaining, one of them is held in the tomb of the planewalker by the solists. - Vespera can't get access to it yet, this is why she needs a coup, on top of getting more control over the military. The third is held by the last dragonrider, who is in the Aegurian Wildlands.</li>
-                 
+                    <li>Describe in detail how Hemlock interacts with Vero's madness</li>
+                    <li>What even is Vero's madness exactly?</li>
+                    <li>How will Vero's truthseekers react/help</li>
+                    <li>Meg's brother and Jone's daughter come back to Tephia</li>
+                    <li>What happens with Raoul and Elwyn atp, what are their character arcs like?</li>
+                    <li>What is Vespera's plan atp, after taking Khava hostage and shutting down the underbelly?</li>
+                    <li>Maybe another speech/message/news about a successful sting</li>
+                    <li>Need to keep the stakes with the OBS/vespera high, what is the OBS up to, they promised Lucina an entrance into the OBS and some explanations in exchange for information about the books of genesis.</li>
+
                 </ul>
-                <h2>Next steps</h2>
+                <h2>To-prep:</h2>
                 <hr class="solid">
                 <ul>
-                    <li>Figure out how Zeke and Vespera relate to The books of genesis and Nora</li>
+                    <li>Description of Hemlock/Vero interaction</li>
+                    <li>All of Onarx</li>
+                    <li>Vero's church and cult in Onarx</li>
+                    <li>The truthseekers</li>
+                    <li>Message from Lucius</li>
+                    <li>Message from Elwyn</li>
+                    <li>Message from Vespera maybe?</li>
+                    <li>Update character sheet for Vespera</li>
+                    <li>Some kind of challenge/sacrifice for Hemlock to overcome in order to regain his wisdom</li>
                 </ul>
             </div>
         </main>
@@ -64,7 +62,7 @@
             <a class="backbutton" href="../../lore.php">Back to lore</a>
         </div>
 
-        <?php include('../../../footer.php')?>
+        <?php include('../../../footer.php') ?>
     </div>
 </body>
 

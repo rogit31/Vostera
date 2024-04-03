@@ -29,7 +29,7 @@
         <main>
             <div class="article-tile">
                 <h1>Layla, The Nightmaiden</h1>
-                <p>Layla, the Nightmaiden is the goddess of the night, the of hunt, the woods, of animals, of introspection and peace.</p> 
+                <p>Layla, the Nightmaiden is the goddess of the night, of the hunt, the woods, of animals, of introspection and peace.</p> 
                 <h2 id="2">Lua and Layla</h2>
                 <hr class="solid">
                 <p>As Lua's sister, they fight for their time in the sky during their mother's absence.</p>

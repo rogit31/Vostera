@@ -28,7 +28,7 @@
         <main>
             <div class="article-tile">
                 <h1>Mila, The Everblazing Heart</h1>
-                <p>Mila is the daughter of <a href="maat.php" class="crosslink">Ma'at</a> and <a href="lua.php" class="crosslink">Lua</a>. She is the goddess of love, passion and war. </p>
+                <p>Mila is the daughter of <a href="maat.php" class="crosslink">Ma'at</a> and <a href="lua.php" class="crosslink">Lua</a>. She is the goddess of love, passion, blood, sex and war. </p>
 
                 <h2 id="2">Philosophy</h2>
                 <hr class="solid">

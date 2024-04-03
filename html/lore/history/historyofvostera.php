@@ -30,7 +30,7 @@
             <div class="article-tile">
                 <h1 id="1">History of Vostera - The Planewalker's Version</h1>
 
-                <p>In the beginning, there was <a href="../gods/kaos.php" class="crosslink">Kaos, The Godfather</a>, the sole entity to exist in the vast universe. The god of time, eternity, the cosmos, and existence itself, Kaos populated the cosmos with his sons and daughters, the stars. Among them, <a href="../gods/sola.php" class="crosslink">Sola, The Sunmother</a>, and <a href="../gods/vero.php" class="crosslink">Vero, The Truth</a>. Sola, feeling the weight of solitude in the vast expanse, birthed the planets, and among them, Vostera, a world destined to play a pivotal role in the cosmic drama.
+                <p>In the beginning, there was <a href="../gods/kaos.php" class="crosslink">Kaos, The Godfather</a>, the sole entity to exist in the vast universe. The god of time, eternity, the cosmos, and existence itself, Kaos populated the cosmos with his sons and daughters, the stars. Among them, <a href="../gods/sola.php" class="crosslink">Sola, The Sunmother</a>, and <a href="../gods/vero.php" class="crosslink">Vero, The Truth</a>. Sola, feeling the weight of solitude in the vast expanse, birthed the planets, and among them, Vostera.
                 </p>
                 <h2 id="2">Titanic Age</h2>
                 <hr class="solid">

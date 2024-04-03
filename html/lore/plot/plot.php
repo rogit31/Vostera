@@ -21,32 +21,44 @@
                 <h1>Plot Points and Story Beats</h1>
                 <p>Notes and plans about what might happen in games. Can't always predict what will happen but it does help to be prepared to what will probably happen.</p>
             </div>
-        <div class="article-cards">
-        <?php  if (isset($_SESSION['loggedin'])): ?>
-        <a href="generalnotes.php" class="card">
-                <div class="header">General Notes</div>
-                <div class="body">What the fuck is happening? </div>
-            </a>
-            <a href="plot_titanfall.php" class="card">
-                <div class="header">Titanfall</div>
-                <div class="body">What is happening at this big crater?</div>
-            </a>
-        <?php endif; ?>
-            <a href="recaps.php" class="card">
-                <div class="header">Recaps</div>
-                <div class="body">What the fuck happened last time?</div>
-            </a>
-            <?php  if (isset($_SESSION['loggedin'])): ?>
-            <a href="titanfallresearchfacility_plot.php" class="card">
-                <div class="header">Titanfall Research Facility</div>
-                <div class="body">Continuation to Titanfall</div>
-            </a>
-            <a href="vesperaspeech.php" class="card">
-                <div class="header">Vespera's speech</div>
-                <div class="body">Rile up the public</div>
-            </a>
-            <?php endif; ?>
-        </div>
+            <h3>Articles:</h3>
+            <div class="article-cards">
+                <?php
+
+                include('../../../db.php');
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+                if (!isset($_SESSION['loggedin'])) {
+                    $sql = "SELECT title, description, url FROM articles WHERE (articles.SECRET = 'N') AND category = 'plot' ORDER BY title";
+                } else {
+                    $sql = "SELECT title, description, url FROM articles WHERE category = 'plot' ORDER BY title";
+                }
+
+
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+
+                    while ($row = $result->fetch_assoc()) {
+                        $random_title = $row["title"];
+                        $random_description = $row["description"];
+                        $url = $row["url"];
+
+                        echo '
+        
+        <a href="' . $url . '" class="card">
+            <div class="header">' . $random_title . '</div>
+            <div class="body">' . $random_description . '</div>
+        </a>
+        ';
+                    }
+                } else //just in case
+                {
+                    echo "No articles found";
+                }
+                $conn->close();
+                ?>
         </main>
 
 <?php include('../../../footer.php')?>

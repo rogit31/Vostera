@@ -33,7 +33,7 @@
                 <p>The books of genesis are the books left behind by <a href="../people/planewalker.html" class="crosslink">Aylin Ashir</a> to her daughter, <a href="../people/nolaashir.html" class="crosslink">Nola Ashir</a>.</p>
                 <h2 id="2">Tomes</h2>
                 <hr class="solid">
-                <p>There are ... tomes to this collection of books each describing a different aspect of knowledge that the planewalker deemed useful for Nora to use and advance her cause.</p>
+                <p>There are nine tomes to this collection of books each describing a different aspect of knowledge that the planewalker deemed useful for Nora to use and advance her cause.</p>
             </div>
         </main>
         <div class="button-wrapper">

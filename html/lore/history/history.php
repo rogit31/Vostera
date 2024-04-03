@@ -22,28 +22,44 @@
                 <h1>History</h1>
                 <p>The history of Vostera is rich in wars, conflicts, revolutions, eras, kingdoms, dynasties, famines, and more. Discover some of the history of Vostera amongst the articles below.</p>
             </div>
-        <div class="article-cards">
-            <a href="historyofvostera.php" class="card">
-                <div class="header">History of Vostera</div>
-                <div class="body">The current accepted accounts of the history of Vostera.</div>
-            </a>
-            <a href="oneyearwar.php" class="card">
-                <div class="header">The One Year War</div>
-                <div class="body">A war in between the Ashir empire and the Imari Military Alliance</div>
-            </a>
-            <a href="pheonixgate.php" class="card">
-                <div class="header">Pheonixgate</div>
-                <div class="body">The treason of the Ashir family.</div>
-            </a>
-            <a href="thousandyearwinter.php" class="card">
-                <div class="header">The Thousand Year Winter</div>
-                <div class="body">An ice age that ended an era.</div>
-            </a>
-            <a href="titanicwar.php" class="card">
-                <div class="header">The Titanic War</div>
-                <div class="body">The war that is told to be the cause of the thousand year winter.</div>
-            </a>
-        </div>
+            <h3>Articles:</h3>
+            <div class="article-cards">
+                <?php
+
+                include('../../../db.php');
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+                if (!isset($_SESSION['loggedin'])) {
+                    $sql = "SELECT title, description, url FROM articles WHERE (articles.SECRET = 'N') AND category = 'history' ORDER BY title";
+                } else {
+                    $sql = "SELECT title, description, url FROM articles WHERE category = 'history' ORDER BY title";
+                }
+
+
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+
+                    while ($row = $result->fetch_assoc()) {
+                        $random_title = $row["title"];
+                        $random_description = $row["description"];
+                        $url = $row["url"];
+
+                        echo '
+        
+        <a href="' . $url . '" class="card">
+            <div class="header">' . $random_title . '</div>
+            <div class="body">' . $random_description . '</div>
+        </a>
+        ';
+                    }
+                } else //just in case
+                {
+                    echo "No articles found";
+                }
+                $conn->close();
+                ?>
         </main>
 
 <?php include('../../../footer.php')?>

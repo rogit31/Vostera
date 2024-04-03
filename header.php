@@ -35,8 +35,14 @@
             <?php endif; ?>
 
         </ul>
-         <img id="eye" src="/media/eye-svgrepo-com.svg" alt="">
-        
+
+        <input type="text" id="searchbar" autocomplete="off" placeholder="Search...">
+        <div id="searchresults">
+        </div>
+
+        <img id="loupe" src="/media/loupe.svg" alt="loupe">
+        <img id="eye" src="/media/eye-svgrepo-com.svg" alt="icon of an eye">
+
 
         <div class="hamburger">
             <span class="bar"></span>

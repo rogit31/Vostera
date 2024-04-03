@@ -1,9 +1,9 @@
 <?php
 session_start();
 // Change this to your connection info.
-$DATABASE_HOST = 'localhost';
-$DATABASE_USER = 'root';
-$DATABASE_PASS = '';
+$DATABASE_HOST = '72.167.206.58';
+$DATABASE_USER = 'i9743374_xfpq1';
+$DATABASE_PASS = 'C0nsole.log';
 $DATABASE_NAME = 'phplogin';
 
 // Try and connect using the info above.

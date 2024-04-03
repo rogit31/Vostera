@@ -3,13 +3,13 @@
 
 <head>
     <title> Vostera - Lore - Gods</title>
-    <?php include('../../../head.php')?>
+    <?php include('../../../head.php') ?>
 </head>
 
 <body>
     <div id="wrapper">
-    <header>
-    <?php include('../../../header.php')?>
+        <header>
+            <?php include('../../../header.php') ?>
         </header>
         <ul class="breadcrumb">
             <li><a href="../../index.php">Home</a></li>
@@ -18,55 +18,51 @@
         </ul>
         <main>
             <div class="article-tile">
-            <h1>Gods</h1>
-            <p>Vostera's pantheon, their myths, their cults, and rituals. The gods are told to exist in this world and Vosterians everywhere pray for them and see their effects. There is one main loose pantheon that the vast majority of Ashirians follow, the rest of Vostera may look to other gods and systems of belief.</p>
+                <h1>Gods</h1>
+                <p>Vostera's pantheon, their myths, their cults, and rituals. The gods are told to exist in this world and Vosterians everywhere pray for them and see their effects. There is one main loose pantheon that the vast majority of Ashirians follow, the rest of Vostera may look to other gods and systems of belief.</p>
             </div>
 
+            <h3>Articles:</h3>
             <div class="article-cards">
-            <a href="aria.php" class="card">
-                <div class="header">Aria</div>
-                <div class="body">Goddess of arts, of politics, of change, and of spring.</div>
-            </a>
-            <a href="ashirianpantheon.php" class="card">
-                <div class="header">Ashirian Pantheon</div>
-                <div class="body">Goddess of arts, of politics, of change, and of spring.</div>
-            </a>
-            <a href="kaira.php" class="card">
-                <div class="header">Kaira</div>
-                <div class="body">God of commerce, of riches, of mortal pleasures and of trickery.</div>
-            </a>
-            <a href="kaos.php" class="card">
-                <div class="header">Kaos</div>
-                <div class="body">The god of time, of space, of existence, and of eternity.</div>
-            </a>
-                <a href="layla.php" class="card">
-                    <div class="header">Layla</div>
-                    <div class="body">Goddess of the hunt, of the woods, of the night, of inner peace.</div>
-                </a>
-                <a href="lua.php" class="card">
-                    <div class="header">Lua</div>
-                    <div class="body">Goddess of the moon, of the sea and of birth. </div>
-                </a>
-                <a href="maat.php" class="card">
-                    <div class="header">Maat</div>
-                    <div class="body">The god of death, of fate, of destiny.</div>
-                </a>
-                <a href="mila.php" class="card">
-                    <div class="header">Mila</div>
-                    <div class="body">Goddess of war, of passion, of fire, of blood.</div>
-                </a>
-                <a href="sola.php" class="card">
-                    <div class="header">Sola</div>
-                    <div class="body">Goddess of the sun, of light, of justice, of motherhood, and of divine judgement. </div>
-                </a>
-                <a href="vero.php" class="card">
-                    <div class="header">Vero</div>
-                    <div class="body">The god of knowledge, of truth, of madness, and of devotion.</div>
-                </a>
-        </div>
+                <?php
+
+                include('../../../db.php');
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+                if (!isset($_SESSION['loggedin'])) {
+                    $sql = "SELECT title, description, url FROM articles WHERE (articles.SECRET = 'N') AND category = 'gods' ORDER BY title";
+                } else {
+                    $sql = "SELECT title, description, url FROM articles WHERE category = 'gods' ORDER BY title";
+                }
+
+
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+
+                    while ($row = $result->fetch_assoc()) {
+                        $random_title = $row["title"];
+                        $random_description = $row["description"];
+                        $url = $row["url"];
+
+                        echo '
+        
+        <a href="' . $url . '" class="card">
+            <div class="header">' . $random_title . '</div>
+            <div class="body">' . $random_description . '</div>
+        </a>
+        ';
+                    }
+                } else //just in case
+                {
+                    echo "No articles found";
+                }
+                $conn->close();
+                ?>
         </main>
 
-        <?php include('../../../footer.php')?>
+        <?php include('../../../footer.php') ?>
     </div>
 </body>
 

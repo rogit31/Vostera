@@ -45,4 +45,4 @@ RewriteRule ^(.*)$ https://vostera.net/$1 [R=301,L]
 # Direct errors to a specified path			
 # ErrorDocument <errorNumber> <path>
 # Note: use a server-root based path here
-ErrorDocument 404 404.php
+ErrorDocument 404 /404.php

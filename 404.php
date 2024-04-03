@@ -3,19 +3,19 @@
 
 <head>
     <title> Vostera - ERROR </title>
-    <?php include('../head.php') ?>
+    <?php include('head.php') ?>
 </head>
 
 <body>
     <div id="wrapper">
         <header>
-        <?php include('../header.php') ?>
+        <?php include('header.php') ?>
         </header>
 
         <main>
             <h1 id="welcome">ERROR</h1>
             
-            <p>You just encountered a 404 error... It must've been the wind.</p>
+            <p>You just encountered a 404 error... It must've been the wind. Also let me know what's broken.</p>
         </main>
             <?php include('footer.php'); ?>
     </div>

@@ -21,30 +21,44 @@
                 <h1>Statblocks</h1>
                 <p>A collection of monsters and NPC statblocks likely to come up in game and designed to be accessed as quickly as possible.</p>
             </div>
-        <div class="article-cards">
-            <a href="imperialguard.php" class="card">
-                <div class="header">Imperial Guard</div>
-                <div class="body">Must've been the wind...</div>
-            </a>
-            <?php if (isset($_SESSION['loggedin'])) : ?>
-            <a href="peacekeeper_statblock.php" class="card">
-                <div class="header">Peacekeepers</div>
-                <div class="body">Definitely not just keeping peace</div>
-            </a>
-            <a href="lucius_aemon_statblock.php" class="card">
-                <div class="header">Lucius Aemon</div>
-                <div class="body">Fantasy Itachi</div>
-            </a>
-            <a href="vespera_argent_statblock.php" class="card">
-                <div class="header">Vespera Argent</div>
-                <div class="body">The BBEG</div>
-            </a>
-            <a href="vixal_blund_statblock.php" class="card">
-                <div class="header">Vixal Blund</div>
-                <div class="body">The right hand</div>
-            </a>
-            <?php endif; ?>
-        </div>
+            <h3>Articles:</h3>
+            <div class="article-cards">
+                <?php
+
+                include('../../../db.php');
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+                if (!isset($_SESSION['loggedin'])) {
+                    $sql = "SELECT title, description, url FROM articles WHERE (articles.SECRET = 'N') AND category = 'statblocks' ORDER BY title";
+                } else {
+                    $sql = "SELECT title, description, url FROM articles WHERE category = 'statblocks' ORDER BY title";
+                }
+
+
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+
+                    while ($row = $result->fetch_assoc()) {
+                        $random_title = $row["title"];
+                        $random_description = $row["description"];
+                        $url = $row["url"];
+
+                        echo '
+        
+        <a href="' . $url . '" class="card">
+            <div class="header">' . $random_title . '</div>
+            <div class="body">' . $random_description . '</div>
+        </a>
+        ';
+                    }
+                } else //just in case
+                {
+                    echo "No articles found";
+                }
+                $conn->close();
+                ?>
         </main>
         <?php include('../../../footer.php')?>
     </div>
