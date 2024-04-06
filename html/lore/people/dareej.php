@@ -3,7 +3,7 @@
 
 <head>
     <title> Vostera - Lore - People - Dareej</title>
-    <?php include('../../../header.php') ?>
+    <?php include('../../../head.php') ?>
 </head>
 
 <body>

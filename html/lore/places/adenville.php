@@ -28,9 +28,6 @@
                 <li><a href="#6">Architecture</a></li>
                 <li><a href="#7">Economy</a></li>
                 <li><a href="#8">Culture</a></li>
-                <?php if (isset($_SESSION['loggedin'])) : ?>
-                <li><a href="#2"></a></li>
-                <?php endif; ?>
             </ol>
         </div>
         <main>

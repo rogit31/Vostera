@@ -25,6 +25,10 @@
 <main>
             <h1>Recaps</h1>
             <article class="article-tile">
+            
+            <h2>April 5<sup>th</sup></h2>
+            <hr class="solid">
+            <p>Last time we played, you had just arrived in Onarx to try and find a solution to Hemlock's coma. Hemlock had some visions where he met Vero once more, and was asked what truths he was seeking. Lucina and meg disguised themselves, and went for a visit to the church of vero. You had a seance with Emir, who enlightened you on your options. You traded some secrets for an elixir of truth, that would supposedly help Hemlock become a truthseer if he wished to become one. After your seance, you decided to go for some shopping, and headed to Tony's, a shop specially made for hunters and huntresses looking to upgrade their gear. Terry Dodson, an employee at Tony's helped you find all the gear you desired and was truly a model employee. You wrote a nice review after tricking him into selling you gear at a discount, left and rejoined with Hemlock after a short trip across the Leife seas. You administered Hemlock the truth elixir as soon as you came back. Hemlock was informed of the choice given to him by Vero, and after asking a bunch more questions decided to become a truthseer. An eye sprouted in the middle of his forehead, he was returned to his previous wisdom, and he was granted the ability to have true vision once per day. Lucina was contacted by Lucius, telling her that he had some news for her and that he was going to pick her up tomorrow. Lucina prayed to Lua before going to bed, and was met with a cold and unsatisfied deity.</p>
 
             <h2>March 22<sup>nd</sup></h2>
             <hr class="solid">
