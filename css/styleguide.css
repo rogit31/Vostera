@@ -307,12 +307,10 @@ color: var(--primary);
 
 }
 
-
 .result {
     padding-top: 5px;
     padding-bottom: 5px;
     padding-left: 15px;
-    color: white;
     font: var(--subtitle);
     text-transform: none;
 

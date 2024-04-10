@@ -72,20 +72,5 @@ $(document).ready(function(){
         } else {
             $('#searchresults').css("display", "none");
         }
-    }).focusout(function() {  
-        let input = $(this).val();
-        if(input !='' && input.length > 2){
-            $('#searchresults').css("display", "flex");
-            $.ajax({
-                url:"/livesearch.php",
-                method:"post",
-                data:{input:input},
-                success:function(data){
-                    $('#searchresults').html(data);
-                }
-            });
-        } else {
-            $('#searchresults').css("display", "none");
-        }
     });
 });
