@@ -36,7 +36,7 @@
 
         </ul>
 
-        <input type="text" id="searchbar" autocomplete="off" placeholder="Search...">
+        <input type="text" id="searchbar" autocomplete="off" placeholder="Search for articles...">
         <div id="searchresults">
         </div>
 

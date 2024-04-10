@@ -13,12 +13,12 @@
         </header>
         <main>
 		<div class="login">
-			<h1>Login</h1>
+			<h1>Login for DMs</h1>
 			<form action="authenticate.php" method="post">
             <div>
 				<label for="username">
 				</label>
-				<input type="text" name="username" placeholder="Username" id="username" required>
+				<input type="text" name="username" placeholder="Username" id="username"  autocomplete="off" required>
             </div>
             <div>
 				<label for="password">

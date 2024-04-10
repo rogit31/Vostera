@@ -189,7 +189,9 @@ tr:nth-child(even) {
     max-width: 100%;
     overflow: hidden;
 }
-
+audio{
+    margin: 15px;
+}
     /*HEADER STUFF*/
 .logo{
     width: 120px;
@@ -301,6 +303,7 @@ color: var(--primary);
     display: flex;
     flex-direction: column;
     z-index: 2;
+    color: white;
 
 }
 

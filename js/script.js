@@ -52,6 +52,7 @@ loupe.click(function() {
         $('#searchbar').focus();
     } else {
         searchBar.slideUp(300);
+        $('#searchresults').css("display", "none");
     }
 });
 

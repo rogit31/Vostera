@@ -25,7 +25,7 @@ if (isset($_POST['input'])) {
                 ';
             }
         } else {
-            echo "No articles found";
+            echo '<p class="result"> No articles found </p>';
         }
     } else {
         $input = $_POST['input'];
@@ -47,7 +47,7 @@ if (isset($_POST['input'])) {
                 ';
             }
         } else {
-            echo "No articles found";
+            echo '<p class="result"> No articles found </p>';
         }
     }
 }

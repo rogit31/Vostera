@@ -25,7 +25,7 @@
                 <li><a href="#3">Relations</a></li>
                 <li><a href="#4">Appearance</a>
                 <li><a href="#5">Cult</a></li>
-                <li><a href="#6">philosophy</a>
+                <li><a href="#6">Philosophy</a>
             </ol>
         </div>
         <main>

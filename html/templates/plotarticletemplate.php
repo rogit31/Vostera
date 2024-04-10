@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title> Vostera - Lore - <!--Category--> - <!--Title--> </title>
+    <title> Vostera - Lore - Plot - <!--Title--> </title>
 <?php include('../../../head.php') ?>
 </head>
 
@@ -20,7 +20,7 @@
         <ul class="breadcrumb">
             <li><a href="/index.php">Home</a></li>
             <li><a href="../../lore.php">Lore</a></li>
-            <li><a href="items.php"><!--Category--></a></li>
+            <li><a href="plot.php">Plot</a></li>
             <li><!--Title--></li>
         </ul>
         <div class="sidenav article-tile">
@@ -33,12 +33,13 @@
             <div class="article-tile">
                 <h1><!--Title--></h1>
                 <p><!--Description--></p>
+                <h2 id="2"></h2>
                 <hr class="solid">
-                <!--Article body-->
+                <p></p>
             </div>
         </main>
         <div class="button-wrapper">
-            <a class="backbutton" href=".php">Back to <!--Category--></a>
+            <a class="backbutton" href="plot.php">Back to plot</a>
             <a class="backbutton" href="../../lore.php">Back to lore</a>
         </div>
 
