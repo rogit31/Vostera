@@ -37,7 +37,7 @@
                 <h2>A bunch more evil shit she wants to do</h2>
                 <hr class="solid">
                 <ul>
-                    <li>Is provoking the OBS to attack so she can gain more political power in the academy council because she is encouraging hightened security</li>
+                    <li>Is provoking the OBS to attack so she can gain more political power in the academy council because she is encouraging heightened security</li>
                     <li>Wants to develop liselos based weapons</li>
                     <li>Wants to invade Aegur in order to gain control complete control over liselos instead of relying on export</li>
                     <li>With the supply of liselos, she could give liselos weapons to an entire army, solidifying her power</li>

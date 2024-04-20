@@ -3,6 +3,7 @@
 
 <head>
     <title> Vostera - Home </title>
+    <link rel="canonical" href="https://vostera.net" />
     <meta name="description" content="Vostera is a homebrewed D&D world made with fifth edition in mind. You can find lore, maps, and vostera-specific rules here.">
     <?php include('head.php') ?>
     <script src="/js/slideshow.js" defer="defer"></script>

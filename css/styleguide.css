@@ -313,6 +313,7 @@ color: var(--primary);
     padding-left: 15px;
     font: var(--subtitle);
     text-transform: none;
+    color: white;
 
 }
     /* LORE CATEGORY TILE*/
