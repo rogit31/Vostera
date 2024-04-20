@@ -142,6 +142,8 @@
                     </ol>
                     </p>
                 <?php endif; ?>
+                <h2>Symbol</h2>
+                <img src="../../../media/obsLogo.svg" alt="logo of the order of the black sun, circle with a strike through it">
             </div>
 
 
