@@ -92,6 +92,15 @@
                     <li>But she doesn't want the OBS to get it because she started fearing that they would actually be a problem</li>
                     <li>She proposes a trade, where the CO would steal the tome of genesis and the tomb of the planewalker. They give it back to her and they will be pardonned under her rule. If they decide not to, she will find them and kill them. </li>
                 </ul>
+                <h2>WHAT'S HAPPENING NEXT LOL</h2>
+                <ul>
+                    <li>They agreed to go with Vespera's demands</li>
+                    <li>They meet here again, she prob gives them a bunch of sass again asks hemlock if he wants to kill her since he cant lie so on</li>
+                    <li>She gives them a map of the place (need to make the map) and points out the main security threats. Maybe the final obstacle to the tomb is... a dragon? :) Adult red dragon is cr 17 tho so they need something either easier or a way to kill the dragon easily, or maybe they can try to convince it. </li>
+                    <li>They need a way to get there, and maybe some extra stealth equipment as well</li>
+                    <li>They also need a way out.</li>
+                    <li>Make sure they understand that if they double cross her, she will hunt them down and murder them. </li>
+                </ul>
             </div>
         </main>
         <div class="button-wrapper">
