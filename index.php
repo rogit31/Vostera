@@ -12,14 +12,14 @@
 <body>
     <div id="wrapper">
 
-        <?php include('header.php') ?>
+        <?php include('header.php'); include_once('new-article-button.php')?>
 
         <main>
             <h1 id="welcome">WELCOME TO VOSTERA</h1>
             <div class="carousel">
-                <button class="carousel_button carousel_button--left is-hidden">
+                <span class="carousel_button carousel_button--left is-hidden">
                     <img src="media/leftchevron.svg" alt="left chevron">
-                </button>
+                </span>
                 <div class="carousel_track-container">
                     <ul class="carousel_track">
 
@@ -40,13 +40,13 @@
                         </li>
                     </ul>
                 </div>
-                <button class="carousel_button carousel_button--right">
+                <span class="carousel_button carousel_button--right">
                     <img src="media/rightchevron.svg" alt="right chevron">
-                </button>
+                </span>
                 <div class="carousel_nav">
-                    <button class="carousel_indicator current-slide"></button>
-                    <button class="carousel_indicator"></button>
-                    <button class="carousel_indicator"></button>
+                    <span class="carousel_indicator current-slide"></span>
+                    <span class="carousel_indicator"></span>
+                    <span class="carousel_indicator"></span>
                 </div>
             </div>
             <div class="article-tile">
@@ -55,23 +55,19 @@
             </div>
             <hr class="rounded">
             <h3>Most recent article</h3>
-            
-            
             <?php
-            include ("db.php");
-
-            // Query to retrieve a random article title from the database
-            $sql = "SELECT title, description, url FROM articles
+            include('db.php');
+            $sql = "SELECT title, description, article_id FROM articles
             WHERE (articles.SECRET = 'N') ORDER BY last_updated DESC LIMIT 1";
 
-            $result = $conn->query($sql);
+            $stmt = $pdo->query($sql);
 
-            if ($result->num_rows > 0) {
-                // Output random article title and description
-                $row = $result->fetch_assoc();
+            if ($stmt->rowCount() > 0) {
+                $row = $stmt->fetch();
                 $random_title = $row["title"];
                 $random_description = $row["description"];
-                $url = $row["url"];
+                $id = $row["article_id"];
+                $url = '/read-article.php?id=' . $id;
 
                 echo '
                 
@@ -84,7 +80,6 @@
             } else {
                 echo "No articles found";
             }
-            $conn->close();
             ?> 
             
         </main>

@@ -9,7 +9,7 @@
 <body>
     <div id="wrapper">
         <header>
-            <?php include('../../../header.php') ?>
+            <?php include('../../../header.php'); include_once('../../../new-article-button.php') ?>
         </header>
         <ul class="breadcrumb">
             <li><a href="../../index.php">Home</a></li>
@@ -19,46 +19,42 @@
         <main>
             <div class="article-tile">
                 <h1>Gods</h1>
+
                 <p>Vostera's pantheon, their myths, their cults, and rituals. The gods are told to exist in this world and Vosterians everywhere pray for them and see their effects. There is one main loose pantheon that the vast majority of Ashirians follow, the rest of Vostera may look to other gods and systems of belief.</p>
             </div>
 
             <h3>Articles:</h3>
             <div class="article-cards">
                 <?php
-
                 include('../../../db.php');
-                if ($conn->connect_error) {
-                    die("Connection failed: " . $conn->connect_error);
-                }
+
                 if (!isset($_SESSION['loggedin'])) {
-                    $sql = "SELECT title, description, url FROM articles WHERE (articles.SECRET = 'N') AND category = 'gods' ORDER BY title";
+                    $sql = "SELECT title, description, article_id FROM articles WHERE (articles.SECRET = 'N') AND category = 'gods' ORDER BY title";
                 } else {
-                    $sql = "SELECT title, description, url FROM articles WHERE category = 'gods' ORDER BY title";
+                    $sql = "SELECT title, description, article_id FROM articles WHERE category = 'gods' ORDER BY title";
                 }
 
+                $result = $pdo->query($sql);
 
-                $result = $conn->query($sql);
+                if ($result->rowCount() > 0) {
 
-                if ($result->num_rows > 0) {
-
-                    while ($row = $result->fetch_assoc()) {
-                        $random_title = $row["title"];
-                        $random_description = $row["description"];
-                        $url = $row["url"];
+                    while ($row = $result->fetch()) {
+                        $title = $row["title"];
+                        $description = $row["description"];
+                        $url = '/read-article.php?id=' . $row["article_id"];
 
                         echo '
         
         <a href="' . $url . '" class="card">
-            <div class="header">' . $random_title . '</div>
-            <div class="body">' . $random_description . '</div>
+            <div class="header">' . $title . '</div>
+            <div class="body">' . $description . '</div>
         </a>
         ';
                     }
-                } else //just in case
+                } else
                 {
                     echo "No articles found";
                 }
-                $conn->close();
                 ?>
         </main>
 

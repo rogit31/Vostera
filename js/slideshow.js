@@ -72,7 +72,7 @@ nextButton.addEventListener('click', e =>{
 
 //click indicator move to slide
 dotsNav.addEventListener('click', e => {
-    const targetDot = e.target.closest('button');
+    const targetDot = e.target.closest('span');
     if (!targetDot) return;
 
     const currentSlide = track.querySelector('.current-slide');

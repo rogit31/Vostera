@@ -17,7 +17,7 @@
             <nav>
                 <ul class="tile-nav">
 
-                    <li class="pc-tile">
+                    <li class="category-tile">
                         <a href="https://www.dndbeyond.com/characters/93464408/AcHkYh" target="_blank">
                             <h3>Hemlock</h3>
                             <div>
@@ -27,17 +27,8 @@
 
                         </a>
                     </li>
-                    <li class="pc-tile">
-                        <a href="https://www.dndbeyond.com/characters/94914442/ngqkhH" target="_blank">
-                            <h3>Knorr</h3>
-                            <div>
-                                <img class="pc-image" src="../media/knorr.jpg" alt="default profile picture">
-                                <p>A human hunter who has already quelled his quest for revenge
-                                    now seeks purpose.</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="pc-tile">
+
+                    <li class="category-tile">
                         <a href="https://www.dndbeyond.com/characters/94419702/jyEw9S" target="_blank">
                             <h3>Lucina</h3>
                             <div>
@@ -47,7 +38,7 @@
                             </div>
                         </a>
                     </li>
-                    <li class="pc-tile">
+                    <li class="category-tile">
                         <a href="https://www.dndbeyond.com/sheet-pdfs/Gooei_112446750.pdf" target="_blank">
                             <h3>Meg</h3>
                             <div>
@@ -56,14 +47,12 @@
                             </div>
                         </a>
                     </li>
-                    <li class="pc-tile">
-                        <a href="https://www.dndbeyond.com/sheet-pdfs/Gooei_108768391.pdf" target="_blank">
-                            <h3>Vannan</h3>
+                    <li class="category-tile">
+                        <a href="https://www.dndbeyond.com/sheet-pdfs/Gooei_124590375.pdf" target="_blank">
+                            <h3>Sylril Ravi</h3>
                             <div>
-                                <img class="pc-image" src="../media/vannan.jpeg"
-                                    alt="portrait of a grimacing half-orc">
-                                <p>Vannan was a half-orc paladin sailor and ex-captain exiled from the
-                                    dawnbreak coast. He fell to the clutches of the Fateweaver after experiencing hallucinations of spiders.</p>
+                                <img class="pc-image" src="../media/sylril.jpeg"  alt="illustration of a paladin wielding a flaming sword">
+                                <p>A pyromaniac half-elf with wavering allegiances.</p>
                             </div>
                         </a>
                     </li>

@@ -9,7 +9,7 @@
 <body>
     <div id="wrapper">
     <header>
-    <?php include('../header.php') ?>
+    <?php include('../header.php');  include_once('../new-article-button.php') ?>
         </header>
         <main>
             <h1>VOSTERA'S LORE</h1>
@@ -81,30 +81,28 @@
         <?php
 
 include('../db.php');
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+
 if (!isset($_SESSION['loggedin'])){
-    $sql = "SELECT title, description, url FROM articles WHERE (articles.SECRET = 'N') ORDER BY title";}
+    $sql = "SELECT title, description, article_id FROM articles WHERE (articles.SECRET = 'N') ORDER BY title";}
 else {
-    $sql = "SELECT title, description, url FROM articles ORDER BY title";
+    $sql = "SELECT title, description, article_id FROM articles ORDER BY title";
 }
 
 
-$result = $conn->query($sql);
+$result = $pdo->query($sql);
 
-if ($result->num_rows > 0) {
+if ($result->rowCount() > 0) {
 
-    while ($row = $result->fetch_assoc()) {
-        $random_title = $row["title"];
-        $random_description = $row["description"];
-        $url = $row["url"];
+    while ($row = $result->fetch()) {
+        $title = $row["title"];
+        $description = $row["description"];
+        $url = '/read-article.php?id=' . $row["article_id"];
 
         echo '
         
         <a href="' . $url . '" class="card">
-            <div class="header">' . $random_title . '</div>
-            <div class="body">' . $random_description . '</div>
+            <div class="header">' . $title . '</div>
+            <div class="body">' . $description . '</div>
         </a>
         ';
         
@@ -115,8 +113,6 @@ if ($result->num_rows > 0) {
 }
 
 
-// Close connection
-$conn->close();
 ?> 
        
 </div>

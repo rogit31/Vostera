@@ -1,53 +1,45 @@
 <?php
 include("db.php");
 session_start();
+
 if (isset($_POST['input'])) {
+    $input = $_POST['input'];
+    $inputParam = '%' . $input . '%';
 
     if (isset($_SESSION['loggedin'])) {
+        // User is logged in
+        $query = "SELECT title, article_id FROM articles WHERE title LIKE ?";
+        $stmt = $pdo->prepare($query);
 
-        $input = $_POST['input'];
-        $query = "SELECT title, url FROM articles WHERE title LIKE ?";
-
-        $stmt = $conn->prepare($query);
-        $stmt->bind_param("s", $inputParam);
-        $inputParam = '%' . $input . '%';
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                $title = $row["title"];
-                $url = $row["url"];
-
-                echo '
-                <a class="result" href="' . $url . '" >' . $title . '</a>
-                ';
-            }
-        } else {
-            echo "No articles found";
+        try {
+            $stmt->execute([$inputParam]);
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+        catch (PDOException $e) {
+            echo $e->getMessage();
         }
     } else {
-        $input = $_POST['input'];
-        $query = "SELECT title, url FROM articles WHERE title LIKE ? AND secret = 'N'";
+        // User is not logged in
+        $query = "SELECT title, article_id FROM articles WHERE title LIKE ? AND secret = 'N'";
+        $stmt = $pdo->prepare($query);
 
-        $stmt = $conn->prepare($query);
-        $stmt->bind_param('s', $inputParam);
-        $inputParam = '%' . $input . '%';
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                $title = $row["title"];
-                $url = $row["url"];
-
-                echo '
-                <a class="result" href="' . $url . '" >' . $title . '</a>
-                ';
-            }
-        } else {
-            echo "No articles found";
+        try {
+            $stmt->execute([$inputParam]);
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+        catch (PDOException $e) {
+            echo $e->getMessage();
         }
     }
+
+    if ($result) {
+        foreach ($result as $row) {
+            $title = $row["title"];
+            $url = '/read-article.php?id=' . $row["article_id"];
+            echo '<a class="result" href="' . $url . '">' . $title . '</a>';
+        }
+    } else {
+        echo " <p class='result warning'  >No articles found</p>";
+    }
 }
+

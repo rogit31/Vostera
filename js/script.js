@@ -2,7 +2,7 @@ const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 const html = $('html');
 const body = $('body');
-
+const deleteButton = $('#delete');
 
 hamburger.addEventListener("click", () => {
     hamburger.classList.toggle("active")
@@ -74,3 +74,10 @@ $(document).ready(function(){
         }
     });
 });
+
+deleteButton.on('click', function(){
+    const userConfirmed = confirm('Are you sure you want to delete this article?');
+    if (!userConfirmed) {
+        event.preventDefault();  // Prevent the default action (redirection) if the user cancels
+    }
+})

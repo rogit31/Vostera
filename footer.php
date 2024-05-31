@@ -26,7 +26,7 @@
                 <div class="footer-section site-info">
                   <h3>Site Information</h3>
                   <p>Published in January 2024</p>
-                  <p>Last updated on March 20<sup>th</sup></p>
+                  <p>Last updated on May 30<sup>th</sup></p>
                   <p>Disclaimer: this website includes artwork and content sourced from various artists and creators. Their content is the intellectual property of their respective owners, including but not limited to Wizards of the Coast and individual artists.</p>
                 </div>
           

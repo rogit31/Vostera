@@ -1,4 +1,5 @@
 db.php
+authenticate.php
 /.idea
 .htaccess
 robots.txt
@@ -139,3 +140,4 @@ fabric.properties
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,phpstorm
+/html/templates/
