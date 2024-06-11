@@ -1,0 +1,20 @@
+{
+    "name": "igor/htdocs",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Igor\\Htdocs\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "rogit31",
+            "email": "rogit31@gmail.com"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.6",
+      "ext-pdo": "*"
+    }
+}
