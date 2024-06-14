@@ -435,14 +435,25 @@ transform: scale(1.02);
 }
 
 .writerButtonsWrapper{
-  display: none;
   position: fixed;
   top: 150px;
   right: 100px;
   flex-direction: column;
   z-index: 2;
+  display: none;
 }
-
+.link-button{
+  width: 100px;
+  height: auto;
+  padding: 12px;
+  border-radius: 5px;
+  border: none;
+  margin: 5px auto;
+  transition: ease 0.2s;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+}
 /*ARTICLE CARDS*/
 
 .article-cards{
@@ -573,12 +584,8 @@ transform: scale(1.02);
 }
 
 /*MAP*/
-iframe{
-  height: 70vh;
-  width: 90vw;
-  max-width: 100%;
-  border: solid 5px rgba(0, 0, 0, 0.4);
-}
+
+
 
 /*CONTACT BOX*/
 .contact-box a:visited{
@@ -708,6 +715,11 @@ form button{
   color: var(--warn);
   margin-bottom: 8px;
   font-weight: 400;
+}
+
+.ql-snow{
+  width: 100%;
+  height: 300px;
 }
 /*FOOTER STUFF*/
 .fa {

@@ -26,7 +26,7 @@ $secret_content = $article['secret_content'];
     <title> Vostera - Update Article </title>
     <?php include('head.php');?>
     <script src="https://cdn.tiny.cloud/1/1tpwed2c7xeky7pvn014hw49ang0yid4juflf5c17yn4ff30/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
-
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -41,30 +41,37 @@ $secret_content = $article['secret_content'];
     <main>
         <h1 id="welcome">Edit an article</h1>
         <form action="save-updated-article.php?id=<?php echo $id ?>" method="POST">
-            <label for="title">Title:</label>
+        <div class='metadataInputWrapper'>
+            <label for="title">Title</label>
             <input type="text" id="title" name="title" value="<?php echo $title?>">
-            <label for="description">Description:</label>
-
+            <label for="description">Description</label>
             <input type="text" id="description" name="description" value="<?php echo $description?>">
-            <label for="category">Category:</label>
+        </div>
+        <div class="metadataDropdownWrapper">
+            <div class="metadataDropdownSubWrapper">
+                <label for="category">Category</label>
+                <select name="category" id="category">
+                    <option value="history" <?php echo($category == 'history') ? 'selected' : ''; ?>>History</option>
+                    <option value="places"<?php echo($category == 'places') ? 'selected' : ''; ?>>Places</option>
+                    <option value="people"<?php echo($category == 'people') ? 'selected' : ''; ?>>People</option>
+                    <option value="items"<?php echo($category == 'items') ? 'selected' : ''; ?>>Items</option>
+                    <option value="gods"<?php echo($category == 'gods') ? 'selected' : ''; ?>>Gods</option>
+                    <option value="organizations"<?php echo($category == 'organizations') ? 'selected' : ''; ?>>Organizations</option>
+                    <option value="plot"<?php echo($category == 'plot') ? 'selected' : ''; ?>>Plot</option>
+                    <option value="statblocks"<?php echo($category == 'statblocks') ? 'selected' : ''; ?>>Statblocks</option>
+                    <option value="meta"<?php echo($category == 'meta') ? 'selected' : ''; ?>>Meta</option>
+                </select>
+            </div>
+            <div class="metadataDropdownSubWrapper">
+                <label for="secret">Visibility</label>
+                <select name="secret" id="secret">
+                    <option value="Y"<?php echo ($secret == 'Y') ? 'selected' : ''?>>Hidden</option>
+                    <option value="N"<?php echo ($secret == 'N') ? 'selected' : ''?>>Visible</option>
+                </select>
+            </div>
 
-            <select name="category" id="category">
-                <option value="history" <?php echo($category == 'history') ? 'selected' : ''; ?>>History</option>
-                <option value="places"<?php echo($category == 'places') ? 'selected' : ''; ?>>Places</option>
-                <option value="people"<?php echo($category == 'people') ? 'selected' : ''; ?>>People</option>
-                <option value="items"<?php echo($category == 'items') ? 'selected' : ''; ?>>Items</option>
-                <option value="gods"<?php echo($category == 'gods') ? 'selected' : ''; ?>>Gods</option>
-                <option value="organizations"<?php echo($category == 'organizations') ? 'selected' : ''; ?>>Organizations</option>
-                <option value="plot"<?php echo($category == 'plot') ? 'selected' : ''; ?>>Plot</option>
-                <option value="statblocks"<?php echo($category == 'statblocks') ? 'selected' : ''; ?>>Statblocks</option>
-                <option value="meta"<?php echo($category == 'meta') ? 'selected' : ''; ?>>Meta</option>
-            </select>
+        </div>
 
-            <label for="secret">Secret:</label>
-            <select name="secret" id="secret">
-                <option value="Y"<?php echo ($secret == 'Y') ? 'selected' : ''?>>Yes</option>
-                <option value="N"<?php echo ($secret == 'N') ? 'selected' : ''?>>No</option>
-            </select>
 
             <label for="content">Content:</label>
             <textarea id="content" name="content"><?php echo $content; ?></textarea>
@@ -77,15 +84,13 @@ $secret_content = $article['secret_content'];
         <script>
             tinymce.init({
                 selector: 'textarea',
-                plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage advtemplate ai mentions tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss markdown',
-                toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
-                tinycomments_mode: 'embedded',
-                tinycomments_author: 'Author name',
+                height: '600px',
+                plugins: 'anchor autolink charmap codesample image link lists table visualblocks wordcount linkchecker ',
+                toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | spellcheckdialog typography | align lineheight | checklist numlist bullist indent outdent | removeformat',
                 mergetags_list: [
                     { value: 'First.Name', title: 'First Name' },
                     { value: 'Email', title: 'Email' },
-                ],
-                ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
+                ]
             });
         </script>
 

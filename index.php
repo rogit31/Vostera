@@ -13,7 +13,6 @@
     <div id="wrapper">
 
         <?php include('header.php'); include_once('new-article-button.php')?>
-
         <main>
             <h1 id="welcome">WELCOME TO VOSTERA</h1>
             <div class="carousel">

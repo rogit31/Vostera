@@ -13,11 +13,6 @@ $secret = $article['secret'];
 $content = $article['content'];
 $secret_content = $article['secret_content'];
 $updateArticleURL = 'update-article.php?id='.$id;
-if($secret == 'Y'){
-    if (!$_SESSION['loggedin']){
-        header('location: index.php');
-    }
-}
 
 ?>
 
@@ -31,7 +26,6 @@ if($secret == 'Y'){
 
 <body id="1">
 <div id="wrapper">
-
     <?php include('header.php') ?>
 
     <ul class="breadcrumb">
@@ -70,7 +64,12 @@ if($secret == 'Y'){
         <button><a class="backbutton" href="../../lore.php">Back to lore</a></button>
     </div>
 
-    <?php include('footer.php') ?>
+    <?php include('footer.php');
+    if($secret == 'Y'){
+        if (!$_SESSION['loggedin']){
+            header('location: index.php');
+        }
+    }?>
 </div>
 </body>
 

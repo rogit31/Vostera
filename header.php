@@ -21,7 +21,9 @@ $menu_items = [
             <?php endforeach?>
 
             <?php
-            session_start();
+            if(session_status() == PHP_SESSION_NONE){
+                session_start();
+            }
             if (!isset($_SESSION['loggedin'])) : ?>
                 <li class="nav-item">
                     <a href="/html/login.php" class="nav-link">Login</a>

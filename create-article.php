@@ -31,7 +31,7 @@
                 session_start();
                 if (isset($_SESSION['warning'])) {
                     echo '<p class="warningMessage">' . $_SESSION['warning'] . '</p>';
-                    unset($_SESSION['warning']); // Clear the warning after displaying it
+                    unset($_SESSION['warning']);
                 }
                 ?>
             </div>
@@ -54,8 +54,8 @@
                 <div class="metadataDropdownSubWrapper">
                     <label for="secret">Visibility</label>
                     <select name="secret" id="secret">
-                        <option value="Y">Visible</option>
-                        <option value="N">Hidden</option>
+                        <option value="Y">Hidden</option>
+                        <option value="N">Visible</option>
                     </select>
                 </div>
             </div>
@@ -73,7 +73,7 @@
             tinymce.init({
                 selector: 'textarea',
                 height: '600px',
-                plugins: 'anchor autolink charmap codesample image link lists media table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode advtemplate mentions tableofcontents footnotes mergetags autocorrect typography inlinecss markdown',
+                plugins: 'anchor autolink charmap codesample image link lists table visualblocks wordcount linkchecker ',
                 toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | spellcheckdialog typography | align lineheight | checklist numlist bullist indent outdent | removeformat',
                 mergetags_list: [
                     { value: 'First.Name', title: 'First Name' },
