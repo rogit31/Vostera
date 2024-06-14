@@ -18,7 +18,7 @@
 
         <main>
             <h1>World Map of Vostera</h1>
-            <div id="map" style="height: 70vh; width:80vw;"></div>
+            <div id="map" style="height: 70vh; width:80vw; max-width:100%"></div>
         </main>
         <script>
             // Initialize the map and set its view to a chosen geographical coordinates and a zoom level
