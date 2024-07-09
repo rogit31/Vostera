@@ -49,14 +49,15 @@ table {
 /*STYLE GUIDE STAY CONSISTENT AND NEVER GIVE UP!*/
 :root {
   /*NEUTRALS*/
-  --background_light: #f4e9da;
+  --background_light: #fbf5ed;
   --header_light: #f4e4d1;
   --footer_light: rgb(50, 48, 50);
   --typeface:rgb(39, 38, 39);
   --white_black: #fafafa;
   --article_background: #f6e7d5;
+  --box_shadow: 0 0 30px 5px rgb(198, 198, 198);
   /*BRAND COLORS*/
-  --primary:rgba(91, 40, 149, 1);
+  --primary: rgb(100, 45, 163);
   --secondary:rgba(182, 143, 212, 1);
   /*STATUS COLORS*/
   --inform: #7b7bec;
@@ -80,6 +81,7 @@ table {
   --typeface: #e9e9e6;
   --article_background: rgba(80, 78, 78, 0.77);
   --white_black: #272726;
+  --box_shadow: 2px 2px 6px 1px rgb(23, 23, 23);
 }
 
 /*GENERAL STYLES*/
@@ -98,7 +100,14 @@ main {
 #wrapper {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 90vh;
+  margin-left: 50px;
+  transition: margin-left ease 0.2s;
+}
+
+#wrapper.sideBarOpen {
+  left: 0;
+  margin-left: 188px;
 }
 
 /*HEADERS*/
@@ -299,6 +308,73 @@ header a:hover {
   border-bottom: 1px dashed #bfbebe;
 }
 
+#searchResultsInline {
+  z-index: 100;
+  display: none;
+  position: fixed;
+  left: 70%;
+  top: 30%;
+  background: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 4px;
+}
+#searchResultsInline a {
+  display: block;
+  border-bottom: 1px solid #c1c1c1;
+  text-decoration: none;
+}
+#searchResultsInline a:hover {
+  background-color: gray;
+}
+
+.resultCard {
+  background-color: #373634;
+  padding: 4px;
+  color: white;
+  border: 1px solid gray;
+  border-radius: 4px;
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.resultCard a {
+  color: white;
+  text-decoration: none;
+}
+.resultCard button {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+}
+.resultCard button img {
+  width: 12px;
+  height: 12px;
+}
+.resultCard span {
+  display: flex;
+  gap: 4px;
+}
+
+.resultCard:hover {
+  background-color: #787877;
+}
+
+.allArticles {
+  background-color: #272726;
+  padding: 24px 5vw;
+  border-radius: 5px;
+  box-shadow: var(--box_shadow);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 4px;
+}
+
 /* LORE CATEGORY TILE*/
 .tile-nav {
   padding: 10px;
@@ -356,7 +432,7 @@ header a:hover {
   line-height: 28px;
   max-width: 1000px;
   background-color: var(--article_background);
-  box-shadow: 0 0 30px 5px rgb(211, 211, 211);
+  box-shadow: var(--box_shadow);
   border-radius: 10px;
 }
 .article-tile h1 {
@@ -391,7 +467,7 @@ header a:hover {
   font-size: 18px;
 }
 .article-tile ul {
-  list-style-image: url(../public/media/rightchevron.svg);
+  list-style-image: url(../media/images/rightchevron.svg);
   font-family: var(--subtitle);
   font-size: 18px;
 }
@@ -420,7 +496,66 @@ hr {
 }
 
 /*SIDE NAVIGATION*/
-.sidenav {
+.sideBar {
+  z-index: 100;
+  background-color: #373634;
+  color: white;
+  width: 180px;
+  transition: 0.5s ease;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  padding: 4px;
+}
+.sideBar a, .sideBar h3 {
+  color: white;
+}
+.sideBar h3 {
+  font-size: 18px;
+}
+.sideBar a {
+  text-decoration: none;
+  font-size: 18px;
+}
+.sideBar .chevronWrapper {
+  display: flex;
+  justify-content: end;
+}
+.sideBar #chevron {
+  margin: 16px;
+  width: 20px;
+  transition: transform 0.5s;
+}
+.sideBar #chevron.rotated {
+  transform: rotate(180deg);
+}
+.sideBar .sideBarIcon {
+  width: 40px;
+}
+.sideBar .swordIcon {
+  max-width: 100%;
+}
+.sideBar ul li {
+  padding: 4px;
+  margin-bottom: 4px;
+  border: 2px solid #2e2e2e;
+  border-radius: 4px;
+}
+.sideBar ul li a {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+}
+.sideBar ul li:hover {
+  background-color: #51504d;
+}
+
+.sideBar.closed {
+  width: 50px;
+}
+.sideBar.closed .sideBarLabel {
   display: none;
 }
 
@@ -470,34 +605,92 @@ button:hover {
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
 }
 
-/*ARTICLE CARDS*/
+.homePreview {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 1000px;
+}
+
+.itemPreview {
+  background-color: var(--white_black);
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+.itemPreview h2, .itemPreview h3, .itemPreview h4 {
+  text-align: left;
+}
+.itemPreview h2 {
+  font-size: 24px;
+}
+.itemPreview h3 {
+  font-size: 22px;
+}
+.itemPreview a {
+  font-size: 16px;
+  color: var(--primary);
+}
+.itemPreview .headerPreview {
+  display: block;
+  color: var(--typeface);
+  font-size: 26px;
+  text-align: center;
+  font-family: var(--title-font);
+  margin-bottom: 16px;
+}
+.itemPreview .headerPreview:hover {
+  color: var(--primary);
+}
+
+#plus {
+  color: white;
+}
+
+/* -------------------------ARTICLE CARDS --------------------------*/
 .article-cards {
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
 
 .card {
-  margin: 10px 5vw;
-  text-decoration: none;
+  margin: 4px 5vw;
   transition: ease 0.2s;
-  min-height: 60px;
+  min-height: 30px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   border-radius: 3px;
   background-color: var(--article_background);
-  border: 2px solid var(--white_black);
 }
 .card .header {
   margin-top: 0.5rem;
   font-family: var(--title-font);
-  font-size: 25px;
+  font-size: 20px;
   text-align: center;
 }
 .card .body {
   margin: 10px;
-  font-size: 14px;
+  font-size: 13px;
   color: var(--typeface);
+}
+.card a {
+  text-decoration: none;
+}
+
+.editorButtonsWrapper {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.editorButtons {
+  width: 60px;
+  padding: 12px;
+}
+.editorButtons img {
+  width: 30px;
+  height: 30px;
 }
 
 .card:hover {
@@ -628,51 +821,52 @@ button:hover {
 }
 
 /*LOGIN FORM*/
-.login h1 {
-  text-align: center;
-  color: var(--primary);
-  padding: 1rem;
-  border-bottom: 1px solid #dee0e4;
+.auth {
+  width: 40vw;
+  margin-top: 20px;
+  background-color: #373634;
+  padding: 16px;
+  border-radius: 4px;
 }
-
-.login form {
+.auth label, .auth h1 {
+  color: white;
+}
+.auth h1 {
+  margin: 12px;
+}
+.auth input {
+  height: 25px;
+  border: none;
+  border-radius: 4px;
+  padding: 4px;
+}
+.auth form {
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+  align-items: center;
 }
-
-.login form label {
-  padding: 0.6rem;
-  height: 50px;
-  width: 50px;
-  color: var(--primary);
+.auth .formElement {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 4px;
+  width: 80%;
 }
-
-.login form input[type=password], .login form input[type=text] {
-  width: 200px;
-  height: 50px;
-  border: 1px solid #d0d2d8;
-  border-radius: 5px;
-  margin-bottom: 20px;
-  padding: 0 15px;
-}
-
-.login form input[type=submit] {
-  width: 70%;
-  padding: 15px;
-  border-radius: 10px;
-  margin: 20px auto 0;
-  background-color: var(--primary);
-  border: 0;
+.auth input[type=submit] {
+  margin-top: 12px;
+  padding: 4px;
+  width: 100px;
+  height: 40px;
   cursor: pointer;
-  color: #ffffff;
-  font-size: 1rem;
-  transition: background-color 0.2s;
+  color: white;
+  background-color: var(--primary);
 }
 
-.login form input[type=submit]:hover {
-  background-color: var(--secondary);
-  transition: background-color 0.2s;
+#registerText {
+  margin-top: 8px;
+  color: white;
+}
+#registerText a {
+  color: var(--secondary);
 }
 
 /*CREATE ARTICLE STUFF*/
@@ -696,6 +890,7 @@ br {
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
   font-size: 18px;
   line-height: 150%;
+  max-width: 80%;
 }
 .metadataInputWrapper input:focus {
   outline: none;
@@ -777,7 +972,6 @@ footer {
   background-color: var(--footer_light);
   color: white;
   padding: 10px;
-  margin-top: 10px;
 }
 
 .footer-grid {
@@ -801,6 +995,7 @@ footer {
   color: #fff;
   font-size: 25px;
   margin-bottom: 15px;
+  margin-top: 8px;
 }
 
 .bottomlinks {
@@ -845,16 +1040,8 @@ footer {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
-  .login form input[type=password], .login form input[type=text] {
-    width: 400px;
-  }
-  .article-cards {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-auto-flow: row;
-  }
   .card {
-    margin: 10px;
+    margin: 8px;
   }
   ul.breadcrumb {
     display: block;
@@ -892,11 +1079,6 @@ footer {
   .tile-nav {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-  }
-  .article-cards {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-auto-flow: row;
   }
   ul.breadcrumb {
     margin-left: calc(45vw - 450px);
@@ -992,10 +1174,6 @@ footer {
   }
   .nav-menu {
     gap: 3vw;
-  }
-  .article-cards {
-    display: grid;
-    grid-template-columns: 32% 32% 32%;
   }
   .card {
     margin: 10px;

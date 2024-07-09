@@ -3,24 +3,18 @@
 
 <head>
     <title>Vostera - Maps</title>
-    <?php
-    include('../head.php') ?>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-            crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <?php include __DIR__ . '/../components/head.php' ?>
 </head>
 
 <body>
     <div id="wrapper">
-    <header>
-    <?php
-    include('../header.php') ?>
-        </header>
-
+        <?php include __DIR__ . '/../components/header.php'?>
         <main>
+            <?php  include_once  __DIR__ . '/../components/sideBar.php'; ?>
             <h1>World Map of Vostera</h1>
-            <div id="map" style="height: 70vh; width:80vw; max-width:100%"></div>
+            <div id="map" style="height: 60vh; width:80vw; max-width:100%"></div>
         </main>
         <script>
             // Initialize the map and set its view to a chosen geographical coordinates and a zoom level
@@ -32,11 +26,7 @@
                 maxZoom: 5, // Adjust based on your tile's zoom levels
                 attribution: 'Igor Tasic'
             }).addTo(map);
-
         </script>
-
-        <?php
-        include('../footer.php') ?>
     </div>
 </body>
 

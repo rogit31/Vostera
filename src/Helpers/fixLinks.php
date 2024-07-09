@@ -10,10 +10,15 @@ $articles = $articleModel->getAllArticlesAndContent();
 
 function updateArticleLinks($articles, $conn)
 {
+    $fixedCount =0;
     foreach ($articles as $article) {
+
         $content = $article['content'];
         $id = $article['article_id'];
         $slug = $article['slug'];
+        if($article['content']=''){
+            echo'Empty article encountered:' . $article['title'];
+        }
 
         $dom = new DOMDocument;
         @$dom->loadHTML($content);
@@ -23,6 +28,7 @@ function updateArticleLinks($articles, $conn)
             $href = $link->getAttribute('href');
             if (preg_match('/read-article\.php\?id=(\d+)/', $href, $matches)) {
                 $articleId = $matches[1];
+                echo'Found link to fix: ' .  $article['title'] .": " . print_r($matches[0]) . PHP_EOL;
 
                 $slugQuery = "SELECT slug FROM articles WHERE article_id = ?";
                 $stmt = $conn->prepare($slugQuery);
@@ -45,8 +51,10 @@ function updateArticleLinks($articles, $conn)
             $stmt->bindParam(1, $updatedContent, PDO::PARAM_STR);
             $stmt->bindParam(2, $id, PDO::PARAM_INT);
             $stmt->execute();
+            $fixedCount ++;
         }
     }
+    echo 'Links fixed:' . $fixedCount . PHP_EOL;
 }
 
 $query = "SELECT article_id, content, slug FROM articles";

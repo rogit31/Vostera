@@ -18,7 +18,7 @@
         } ?>
 
         <ul class="breadcrumb">
-            <li><a href="/index.php">Home</a></li>
+            <li><a href="/public/index.php">Home</a></li>
             <li><a href="../../lore.php">Lore</a></li>
             <li><a href="plot.php">Plot</a></li>
             <li><!--Title--></li>

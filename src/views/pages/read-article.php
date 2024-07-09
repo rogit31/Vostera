@@ -1,41 +1,27 @@
 <?php
-
-include('db.php');
-
-$id = (int)$_GET['id'];
-$sql = "SELECT * FROM articles WHERE article_id = ?";
-$stmt = $pdo->prepare($sql);
-$stmt->execute([$id]);
-$article = $stmt->fetch();
-$title = $article['title'];
-$category = $article['category'];
-$secret = $article['secret'];
-$content = $article['content'];
-$secret_content = $article['secret_content'];
-$updateArticleURL = 'update-article.php?id='.$id;
+//AUTH CHECK
+if(!isset($_SESSION['loggedin']) && $articleData['secret'] == 'Y'){
+    header('location: /');
+}
 
 ?>
 
 <!doctype html>
 <html lang="en">
-
 <head>
-    <title> Vostera - Lore - <?php echo ucfirst(htmlspecialchars($category)); ?> - <?php echo htmlspecialchars($title); ?> </title>
-    <?php
-    include('head.php') ?>
+    <title>Vostera - Lore - <?= ucfirst($articleData['category']) ?> - <?= htmlspecialchars($articleData['title']) ?></title>
+    <?php include_once __DIR__ . '/../components/head.php'; ?>
 </head>
-
 <body id="1">
 <div id="wrapper">
-    <?php
-    include('header.php') ?>
-
+    <?php include __DIR__ . '/../components/header.php'?>
     <ul class="breadcrumb">
-        <li><a href="/index.php">Home</a></li>
-        <li><a href="html/lore.php">Lore</a></li>
-        <li><a href="html/lore/<?php echo htmlspecialchars($category)?>/<?php echo htmlspecialchars($category)?>.php"> <?php echo ucfirst(htmlspecialchars($category)); ?></a></li>
-        <li><?php echo htmlspecialchars($title)?></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/lore">Lore</a></li>
+        <li><a href="/lore/<?= $articleData['category'] ?>"><?= ucfirst($articleData['category']) ?></a></li>
+        <li><?= htmlspecialchars($articleData['title']) ?></li>
     </ul>
+
     <div class="sidenav article-tile">
         <ol>
             <li><a href="#1">Top</a></li>
@@ -44,35 +30,33 @@ $updateArticleURL = 'update-article.php?id='.$id;
     </div>
 
     <main>
+        <?php  include_once  __DIR__ . '/../components/sideBar.php'; ?>
         <div class="article-tile">
-            <h1><?php echo $title?></h1>
-            <?php echo $content . "<br>";
-            if($_SESSION['loggedin']){
-                echo $secret_content;
-            }
-            ?>
+            <h1><?= htmlspecialchars($articleData['title']) ?></h1>
+            <?= $articleData['content'] ?><br>
+            <?php if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $articleData['author_id']) {
+                echo $articleData['secret_content'];
+            } ?>
         </div>
-        <?php
-        include_once('editor-buttons.php');
-        ?>
+        <?php  if ( isset($_SESSION['user_id']) && $_SESSION['user_id'] == $articleData['author_id']) {
+            echo "
+        <span class='editorButtonsWrapper'>
+            <form action='/edit-article/" . $articleData['slug'] . "' method='post'>
+                <button type='submit' class='editorButtons'><img src='/media/images/editIcon.svg' alt='Edit'></button>
+            </form>
+            <form action='/delete-article/" . $articleData['slug'] . "' method='post'>
+                <input type='hidden' name='slug' id='slug' value='" . $articleData['slug'] . "'>
+                <button class='deleteButton editorButtons' type='submit'><img src='/media/images/trashIcon.svg' alt='Delete'></button>
+            </form>
+        </span>";
+        } ?>
     </main>
 
-
     <div class="button-wrapper">
-        <button><a class="backbutton" href="/html/lore/<?php
-            echo $category ?>/<?php
-            echo $category ?>.php">Back to <?php
-                echo $category ?></a></button>
-        <button><a class="backbutton" href="../../lore.php">Back to lore</a></button>
+        <button><a class="backbutton" href="/lore/<?= $articleData['category'] ?>">Back to <?= ucfirst($articleData['category']) ?></a></button>
+        <button><a class="backbutton" href="/lore">Back to lore</a></button>
     </div>
 
-    <?php include('footer.php');
-    if($secret == 'Y'){
-        if (!$_SESSION['loggedin']){
-            header('location: index.php');
-        }
-    }?>
 </div>
 </body>
-
 </html>

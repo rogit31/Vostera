@@ -3,18 +3,14 @@
 
 <head>
     <title>Vostera - House Rules</title>
-    <?php
-    include('../head.php') ?>
+    <?php include __DIR__ . '/../components/head.php' ?>
 </head>
 
 <body>
     <div id="wrapper">
-    <header>
-    <?php
-    include('../header.php') ?>
-        </header>
-
+        <?php include __DIR__ . '/../components/header.php'?>
         <main>
+            <?php  include_once  __DIR__ . '/../components/sideBar.php'; ?>
             <h1>House Rules</h1>
             <article class="article-tile">
                 <h2>Character Guidelines</h2>
@@ -47,8 +43,6 @@
             </article>
         </main>
 
-            <?php
-            include('../footer.php') ?>
     </div>
 </body>
 

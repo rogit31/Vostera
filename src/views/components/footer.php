@@ -11,16 +11,16 @@
                   <a href="https://www.youtube.com/@naturalcasts1612" target="_blank" class="fa fa-youtube fa-2x"></a>
                   <a href="https://twitter.com/NaturalCasts" target="_blank" class="fa fa-twitter fa-2x"></a>
                   <a href="https://www.instagram.com/rogit31/" target="_blank" class="fa fa-instagram fa-2x"></a>
+                    <a href="https://github.com/rogit31" target="_blank" class="fa fa-github fa-2x"></a>
                 </div>
                 
                 <div class="footer-section navigation-links">
                   <h3>Navigation</h3>
-                  <a class="bottomlinks" href="/index.php">Home</a>
-                  <a class="bottomlinks" href="/html/lore.php">Lore</a>
-                  <a class="bottomlinks" href="/html/maps.php">Maps</a>
-                  <a class="bottomlinks" href="/html/playercharacters.php">Player Characters</a>
-                  <a class="bottomlinks" href="/html/houserules.php">House Rules</a>
-                  <a class="bottomlinks" href="/html/contact.php">Contact</a>
+                  <a class="bottomlinks" href="/home">Home</a>
+                  <a class="bottomlinks" href="/lore">Lore</a>
+                  <a class="bottomlinks" href="/maps">Maps</a>
+                  <a class="bottomlinks" href="/playercharacters">Player Characters</a>
+                  <a class="bottomlinks" href="/houserules">House Rules</a>
                 </div>
           
                 <div class="footer-section site-info">

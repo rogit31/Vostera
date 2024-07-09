@@ -4,17 +4,14 @@
 <head>
     <title>Vostera - Player Characters</title>
     <?php
-    include('../head.php') ?>
+    include __DIR__ . '/../components/head.php' ?>
 </head>
 
 <body>
     <div id="wrapper">
-    <header>
-    <?php
-    include('../header.php') ?>
-        </header>
-
+        <?php include __DIR__ . '/../components/header.php'?>
         <main>
+            <?php  include_once  __DIR__ . '/../components/sideBar.php'; ?>
             <h1>Player Characters</h1>
             <nav>
                 <ul class="tile-nav">
@@ -23,7 +20,7 @@
                         <a href="https://www.dndbeyond.com/characters/93464408/AcHkYh" target="_blank">
                             <h3>Hemlock</h3>
                             <div>
-                                <img class="pc-image" src="../public/media/images/hemlock.png" alt="drawing of a green dragonborn">
+                                <img class="pc-image" src="/media/images/hemlock.png" alt="drawing of a green dragonborn">
                             </div>
                                 <p>A green dragonborn rogue with a military history, arson related PTSD and a penchant for shiny things...</p>
 
@@ -34,7 +31,7 @@
                         <a href="https://www.dndbeyond.com/characters/94419702/jyEw9S" target="_blank">
                             <h3>Lucina</h3>
                             <div>
-                                <img class="pc-image" src="../public/media/images/lucina.jpeg" alt="profile picture of a purple tiefling">
+                                <img class="pc-image" src="/media/images/lucina.jpeg" alt="profile picture of a purple tiefling">
                                 <p> A tiefling cleric and religious follower of the moon goddess <a class="crosslink" href="#">Lua</a>
                                     with memory problems. </p>
                             </div>
@@ -44,7 +41,7 @@
                         <a href="https://www.dndbeyond.com/sheet-pdfs/Gooei_112446750.pdf" target="_blank">
                             <h3>Meg</h3>
                             <div>
-                                <img class="pc-image" src="../public/media/images/meg.png" alt="drawing of a bird-person bard">
+                                <img class="pc-image" src="/media/images/meg.png" alt="drawing of a bird-person bard">
                                 <p>An aarakocra bard with a kind heart, motivated to make coin by any means possible. </p>
                             </div>
                         </a>
@@ -53,17 +50,25 @@
                         <a href="https://www.dndbeyond.com/sheet-pdfs/Gooei_124590375.pdf" target="_blank">
                             <h3>Sylril Ravi</h3>
                             <div>
-                                <img class="pc-image" src="../public/media/images/sylril.jpeg" alt="illustration of a paladin wielding a flaming sword">
+                                <img class="pc-image" src="/media/images/sylril.jpeg" alt="illustration of a paladin wielding a flaming sword">
                                 <p>A pyromaniac half-elf with wavering allegiances.</p>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="category-tile">
+                        <a href="#">
+                            <h3>Bor</h3>
+                            <div>
+                                <img class="pc-image" src="https://i.pinimg.com/564x/61/c7/a4/61c7a4c96b677f718ec058585b8d6217.jpg" alt="illustration of a dwarf">
+                                <p>A dwarf druid in charge at the Eloran mines, a mine exporting silver to Kimbar and the rest of the Ashir empire.</p>
                             </div>
                         </a>
                     </li>
                 </ul>
             </nav>
         </main>
- 
-<?php
-include('../footer.php') ?>
+
     </div>
 </body>
 

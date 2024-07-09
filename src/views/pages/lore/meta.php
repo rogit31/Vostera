@@ -3,23 +3,20 @@
 
 <head>
     <title> Vostera - Lore - Meta</title>
-    <?php
-    include('../../../head.php') ?>
+    <?php include __DIR__ . '/../../components/head.php'?>
 </head>
 
 <body>
     <div id="wrapper">
-    <header>
-    <?php include('../../../header.php');
-    include_once('../../../new-article-button.php') ?>
-        </header>
+        <?php include __DIR__ . '/../../components/header.php' ?>
         <ul class="breadcrumb">
-            <li><a href="../../../public/index.php">Home</a></li>
-            <li><a href="lore.php">Lore</a></li>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/lore">Lore</a></li>
             <li>Meta</li>
         </ul>
 
         <main>
+            <?php  include_once  __DIR__ . '/../../components/sideBar.php'; ?>
             <div class="article-tile">
                 <h1>Meta</h1>
                 <p>The physical laws that govern the world, the calendars, time, and cosmology. Also everything else that didn't fit anywhere else. A lot of these are secret for now :)</p>
@@ -27,35 +24,23 @@
             <h3>Articles:</h3>
             <div class="article-cards">
                 <?php
-                include('../../../db.php');
-
-                if (!isset($_SESSION['loggedin'])) {
-                    $sql = "SELECT title, description, article_id FROM articles WHERE (articles.SECRET = 'N') AND category = 'meta' ORDER BY title";
-                } else {
-                    $sql = "SELECT title, description, article_id FROM articles WHERE category = 'meta' ORDER BY title";
+                if (!$articles){
+                    echo'something went wrong';
                 }
-                $result = $pdo->query($sql);
-
-                if ($result->rowCount() > 0) {
-
-                    while ($row = $result->fetch()) {
-                        $random_title = $row["title"];
-                        $random_description = $row["description"];
-                        $url = '/read-article.php?id=' . $row["article_id"];
-                        echo '
-        
-        <a href="' . $url . '" class="card">
-            <div class="header">' . $random_title . '</div>
-            <div class="body">' . $random_description . '</div>
-        </a>
-        ';
-                    }
+                foreach ($articles as $item) {
+                    echo '
+            
+            <li class="card">
+                  <a href="/read-article/' . $item['slug'] . '">
+                        <div class="header">' . $item['title'] . '</div>
+                        <div class="body">' . $item['description'] . '</div>
+                </a>
+            </li>
+            ';
                 }
                 ?>
+            </div>
         </main>
-
-<?php
-include('../../../footer.php') ?>
     </div>
 </body>
 

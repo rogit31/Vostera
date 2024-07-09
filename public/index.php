@@ -1,92 +1,79 @@
-<!doctype html>
-<html lang="en">
+<?php
+//            <----- Router ----->
+session_start();
 
-<head>
-    <title> Vostera - Home </title>
-    <link rel="canonical" href="https://vostera.net" />
-    <meta name="description" content="Vostera is a homebrewed D&D world made with fifth edition in mind. You can find lore, maps, and vostera-specific rules here.">
-    <?php
-    include('head.php') ?>
-    <script src="public/js/slideshow.js" defer="defer"></script>
-</head>
+use App\Controllers\AuthController;
+use App\Controllers\SearchController;
+use App\Models\ArticleModel;
+use Core\Router;
+use App\Controllers\PageController;
+use App\Controllers\ArticleController;
 
-<body>
-    <div id="wrapper">
 
-        <?php include('header.php');
-        include_once('new-article-button.php') ?>
-        <main>
-            <h1 id="welcome">WELCOME TO VOSTERA</h1>
-            <div class="carousel">
-                <span class="carousel_button carousel_button--left is-hidden">
-                    <img src="public/media/images/leftchevron.svg" alt="left chevron">
-                </span>
-                <div class="carousel_track-container">
-                    <ul class="carousel_track">
+require __DIR__ . '/../vendor/autoload.php';
 
-                        <li class="carousel_slide current-slide">
-                            <a href="src/views/pages/lore.php"><img class="carousel_image" src="public/media/images/brassdragon.jpg" alt="Illustration of a Brass dragon">
-                                <h2>LORE</h2>
-                            </a>
-                        </li>
-                        <li class="carousel_slide">
-                            <a href="src/views/pages/playercharacters.php"><img class="carousel_image" src="public/media/images/tasha.webp" alt="Mage casting a spell">
-                                <h2>PLAYER CHARACTERS</h2>
-                            </a>
-                        </li>
-                        <li class="carousel_slide">
-                            <a href="src/views/pages/places.php"><img class="carousel_image" src="public/media/images/whitestone.png" alt="Illustration of Whitestone">
-                                <h2>PLACES</h2>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <span class="carousel_button carousel_button--right">
-                    <img src="public/media/images/rightchevron.svg" alt="right chevron">
-                </span>
-                <div class="carousel_nav">
-                    <span class="carousel_indicator current-slide"></span>
-                    <span class="carousel_indicator"></span>
-                    <span class="carousel_indicator"></span>
-                </div>
-            </div>
-            <div class="article-tile">
-                <h3>WHAT IS VOSTERA?</h3>
-                <p>Vostera is a fictional homebrewed world made with Dungeons and Dragons 5<sup>th</sup> edition in mind. You may use any and all assets found here though beware, for not all the intellectual property here is mine. This website was made with the intent to use it as a library of information about Vostera and the campaigns around it.</p>
-            </div>
-            <hr class="rounded">
-            <h3>Most recent article</h3>
-            <?php
-            include('db.php');
-            $sql = "SELECT title, description, article_id FROM articles
-            WHERE (articles.SECRET = 'N') ORDER BY last_updated DESC LIMIT 1";
+$router = new Router();
+$pageController = new PageController();
+$authController = new AuthController();
+$searchController = new SearchController();
+$articleModel = new ArticleModel();
 
-            $stmt = $pdo->query($sql);
+// -------------------- PAGE ROUTING ----------------
+$router->get('', [$pageController, 'home']);
+$router->get('home', [$pageController, 'home']);
+$router->get('lore', [$pageController, 'lore']);
+$router->get('maps', [$pageController, 'maps']);
+$router->get('houserules', [$pageController, 'houserules']);
+$router->get('contact', [$pageController, 'contact']);
+$router->get('login', [$pageController, 'login']);
+$router->get('playercharacters', [$pageController, 'playercharacters']);
+$router ->get('all-articles', [$pageController, 'allArticles']);
+$router->get('your-articles', [$pageController, 'yourArticles']);
+$router->get('your-drafts', [$pageController, 'yourDrafts']);
+$router->get('your-secrets', [$pageController, 'yourSecrets']);
+// <--------------lore pages --------------->
+$router->get('lore/gods', [$pageController, 'loreGods']);
+$router->get('lore/history', [$pageController, 'loreHistory']);
+$router->get('lore/places', [$pageController, 'lorePlaces']);
+$router->get('lore/people', [$pageController, 'lorePeople']);
+$router->get('lore/items', [$pageController, 'loreItems']);
+$router->get('lore/organizations', [$pageController, 'loreOrganizations']);
+$router->get('lore/plot', [$pageController, 'lorePlot']);
+$router->get('lore/statblocks', [$pageController, 'loreStatBlocks']);
+$router->get('lore/meta', [$pageController, 'loreMeta']);
 
-            if ($stmt->rowCount() > 0) {
-                $row = $stmt->fetch();
-                $random_title = $row["title"];
-                $random_description = $row["description"];
-                $id = $row["article_id"];
-                $url = '/read-article.php?id=' . $id;
+// <-------------AUTHENTICATION ROUTING------------------>
+$router->post('login/process', [$authController, 'processLoginForm']);
+$router->get('logout', [$authController, 'logout']);
+$router->get('register', [$pageController, 'register']);
+$router->post('register/process', [$authController, 'processRegister']);
 
-                echo '
-                
-    <div class="article-cards">
-        <a href=" ' . $url . '" class="card">
-                <div class="header">' . $random_title . '</div>
-                <div class="body">' . $random_description . '</div>
-        </a>
-    </div>';
-            } else {
-                echo "No articles found";
-            }
-            ?> 
-            
-        </main>
-        <?php
-        include('footer.php') ?>
-    </div>
-</body>
+// -------------------- ARTICLE ROUTING ---------------------------
+$router->get('read-article/{slug}', function($slug) use ($pageController) {
+    return $pageController->readArticle($slug);
+});
+$router->post('edit-article/{slug}', function($slug) use ($pageController){
+    return $pageController->editArticle($slug);
+});
+$router->post('delete-article/{slug}', function($slug) use($pageController){
+    return $pageController->deleteArticle($slug);
+});
+$router->post('save-updated-article/{slug}', [$articleModel, 'saveUpdatedArticle']);
+$router->get('create-article' , [$pageController, 'createArticle']);
+$router->post('save-article' , [$articleModel, 'saveArticle']);
+$router->post('save-draft', [$articleModel, 'saveDraft']);
 
-</html>
+//--------------------------Live search--------------------------------
+$router->post('livesearch', [$searchController, 'liveSearch']);
+$router->post('articleLivesearch', [$searchController, 'articleLivesearch']);
+
+//--------------------DYNAMIC ARTICLE FETCHING -----------------------
+$router->get('recentArticlesWithLimit/{limit}', function ($limit)  {
+    $articleController = new ArticleController();
+    $articleController->getRecentArticles($limit);
+});
+
+
+$router->route();
+
+
