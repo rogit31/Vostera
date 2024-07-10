@@ -1,6 +1,5 @@
 @ -1,147 +0,0 @@
 src/config/db.php
-authenticate.php
 /.idea
 .htaccess
 robots.txt
