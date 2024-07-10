@@ -8,7 +8,7 @@
     <?php include __DIR__ . '/../components/head.php'; ?>
     <?php include __DIR__ . '/../components/articleVisualizer.php'?>
     <script type="text/javascript"> let articleData =[]; articleData= <?php echo json_encode($data); ?></script>
-<!--    <script src="/js/visualizer.js" defer></script>-->
+    <script src="/js/visualizer.js" defer></script>
 </head>
 
 <body>
@@ -29,7 +29,7 @@
                 </ul>
             </div>
             <button id="plus"> + MORE</button>
-<!--            <canvas id="canvas" width="600px" height="600px"> </canvas>-->
+            <canvas id="canvas" width="600px" height="600px"> </canvas>
         </div>
 
     </main>
