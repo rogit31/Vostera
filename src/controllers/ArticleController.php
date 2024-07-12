@@ -17,7 +17,7 @@ class ArticleController
     }
     public function getRecentArticles($limit){
         $articles = $this->articleModel->getRecentArticles($limit);
-        require_once __DIR__ . '/../views/components/excerpts.php';
+        require_once __DIR__ . '/../Views/components/excerpts.php';
     }
 
 }

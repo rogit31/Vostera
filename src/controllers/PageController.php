@@ -141,13 +141,12 @@ public function deleteArticle($slug){
         $articleModel = new ArticleModel;
         $articleModel->deleteArticle($slug);
 }
-
     // Helper method to render views
     public function renderView($viewName, $data = [])
     {
         extract($data); // Extract associative array into variables
-        include_once __DIR__ . "/../views/pages/{$viewName}.php";
-        include_once __DIR__ . '/../views/components/footer.php';
+        include_once __DIR__ . "/../Views/pages/{$viewName}.php";
+        include_once __DIR__ . '/../Views/components/footer.php';
     }
 
 }
