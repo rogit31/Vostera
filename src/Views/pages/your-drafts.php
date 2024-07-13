@@ -25,7 +25,7 @@ if (!isset($_SESSION['loggedin'])){
             foreach ($articles as $key => $article) {
                 echo "
     <div class='resultCard'>
-        <a href=\"" . $article['slug'] . "\">" . $article['title'] . "</a>";
+        <a href=\"/read-article/" . $article['slug'] . "\">" . $article['title'] . "</a>";
                 if ( isset($_SESSION['user_id']) && $_SESSION['user_id'] == $article['author_id']) {
                     echo "
         <span>

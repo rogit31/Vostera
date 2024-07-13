@@ -145,8 +145,8 @@ public function deleteArticle($slug){
     public function renderView($viewName, $data = [])
     {
         extract($data); // Extract associative array into variables
-        include_once __DIR__ . "/../Views/pages/{$viewName}.php";
-        include_once __DIR__ . '/../Views/components/footer.php';
+     include_once __DIR__ .    "/../Views/pages/{$viewName}.php";
+     include_once __DIR__ .   '/../Views/components/footer.php';
     }
 
 }
