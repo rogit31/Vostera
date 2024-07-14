@@ -18,7 +18,7 @@
 
         <?php  include_once  __DIR__ . '/../components/sideBar.php'; ?>
         <div>
-            <h1 id="welcome">WELCOME TO VOSTERA!!!!</h1>
+            <h1 id="welcome">WELCOME TO VOSTERA!!!</h1>
 
             <div class="">
                 <h3>Recent publishes or updates</h3>
