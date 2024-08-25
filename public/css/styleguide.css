@@ -52,25 +52,25 @@ table {
   --background_light: #fbf5ed;
   --header_light: #f4e4d1;
   --footer_light: rgb(50, 48, 50);
-  --typeface:rgb(39, 38, 39);
+  --typeface: rgb(39, 38, 39);
   --white_black: #fafafa;
   --article_background: #f6e7d5;
   --box_shadow: 0 0 30px 5px rgb(198, 198, 198);
   /*BRAND COLORS*/
   --primary: rgb(100, 45, 163);
-  --secondary:rgba(182, 143, 212, 1);
+  --secondary: rgba(182, 143, 212, 1);
   /*STATUS COLORS*/
   --inform: #7b7bec;
   --warn: #ea7676;
   /*FONTS*/
-  --title-font:"Lora";
+  --title-font: "Lora";
   --title-size: 58px;
-  --subtitle:"Inter";
+  --subtitle: "Inter";
   --subtitle-size: 35px;
-  --code:"DM Mono", monospace;
+  --code: "DM Mono", monospace;
   /*SPACING*/
-  --content-gap:12px;
-  --header-height:100px;
+  --content-gap: 12px;
+  --header-height: 100px;
 }
 
 /*DARK MODE*/
@@ -642,7 +642,32 @@ button:hover {
 .itemPreview .headerPreview:hover {
   color: var(--primary);
 }
+.itemPreview .excerptInfo {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+  opacity: 70%;
+  border-radius: 4px;
+  padding: 4px;
+}
 
+#loadingSpinner {
+  display: flex;
+  justify-content: center;
+}
+#loadingSpinner img {
+  animation: spin 2s infinite cubic-bezier(0.14, 0.68, 1, 0.5);
+  width: 20px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 #plus {
   color: white;
 }
@@ -890,7 +915,6 @@ br {
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
   font-size: 18px;
   line-height: 150%;
-  max-width: 80%;
 }
 .metadataInputWrapper input:focus {
   outline: none;

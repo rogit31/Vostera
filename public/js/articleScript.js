@@ -35,7 +35,7 @@ function fetchArticles(keyword) {
     } else {
         searchResultsContainer.show();
         $.ajax({
-            url: "articleLivesearch",
+            url: "/articleLivesearch",
             method: 'POST',
             data: { input: keyword },
             success: function(data) {

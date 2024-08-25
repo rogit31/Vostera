@@ -16,9 +16,9 @@
 <div id="wrapper">
     <?php include __DIR__ . '/../components/header.php' ?>
     <main>
-        <?php  include_once  __DIR__ . '/../components/sideBar.php'; ?>
+        <?php  include_once __DIR__ . '/../components/sideBar.php'; ?>
         <h1 id="welcome">Create an article</h1>
-        <form action="save-article" method="post">
+        <form action="save-article" method="POST">
 
             <div class="metadataInputWrapper">
                 <label for="title">Title <span class="asterisk">*</span></label>

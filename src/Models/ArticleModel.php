@@ -105,7 +105,12 @@ class ArticleModel
     {
         $db = new Database();
         $conn = $db->connect();
-        $query = "SELECT title, slug, content FROM articles WHERE isDraft=0 AND SECRET = 'N' ORDER BY last_updated DESC LIMIT :limit";
+        $query = "SELECT title, slug, content, last_updated, accounts.username as username
+                    FROM articles 
+                    JOIN accounts ON accounts.id = articles.author_id
+                    WHERE isDraft=0 AND SECRET = 'N' 
+                    ORDER BY last_updated 
+                    DESC LIMIT :limit";
         $stmt = $conn->prepare($query);
         try {
             $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);

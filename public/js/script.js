@@ -10,10 +10,10 @@ hamburger.addEventListener("click", () => {
 });
 
 
-    function myFunction() {
-        var element = document.body;
-        element.classList.toggle("darkmode");
-      };
+function myFunction() {
+    var element = document.body;
+    element.classList.toggle("darkmode");
+};
 
 //LOAD ANIMATION
 
@@ -24,14 +24,15 @@ let darkModeEnabled = JSON.parse(localStorage.getItem('darkMode'));
 if (darkModeEnabled === true) {
     html.toggleClass('darkMode');
     eye.attr('src', darkModeEnabled ? '/media/images/blink-svgrepo-com.svg' : '/media/images/eye-svgrepo-com.svg');
-};
+}
+;
 
 function enableDarkMode() {
     darkModeEnabled = !darkModeEnabled;
     html.css({
         'transition': 'background-color 1s ease, color 1s ease'
     });
-    
+
     localStorage.setItem('darkMode', darkModeEnabled.toString());
     html.toggleClass('darkMode', darkModeEnabled);
     eye.attr('src', darkModeEnabled ? '/media/images/blink-svgrepo-com.svg' : '/media/images/eye-svgrepo-com.svg');
@@ -45,7 +46,7 @@ eye.on('click', enableDarkMode);
 const loupe = $('#loupe');
 const searchBar = $('#searchbar');
 
-loupe.click(function() {
+loupe.click(function () {
     if (searchBar.is(':hidden')) {
         searchBar.slideDown(300);
         $('#searchbar').focus();
@@ -55,16 +56,16 @@ loupe.click(function() {
     }
 });
 
-$(document).ready(function(){
-    $('#searchbar').keyup(function(){
+$(document).ready(function () {
+    $('#searchbar').keyup(function () {
         let input = $(this).val();
-        if(input !='' && input.length > 2){
+        if (input != '' && input.length > 2) {
             $('#searchresults').css("display", "flex");
             $.ajax({
-                url:"/livesearch",
-                method:"post",
-                data:{input:input},
-                success:function(data){
+                url: "/livesearch",
+                method: "post",
+                data: {input: input},
+                success: function (data) {
                     $('#searchresults').html(data);
                 }
             });
@@ -74,7 +75,7 @@ $(document).ready(function(){
     });
 });
 
-deleteButton.on('click', function(){
+deleteButton.on('click', function () {
     const userConfirmed = confirm('Are you sure you want to delete this article?');
     if (!userConfirmed) {
         event.preventDefault();  // Prevent the default action (redirection) if the user cancels
@@ -86,7 +87,7 @@ deleteButton.on('click', function(){
 const chevron = $('#chevron');
 const sideBar = $('.sideBar');
 let chevronIsOpen = true;
-chevron.on('click', function(){
+chevron.on('click', function () {
     chevronIsOpen = false;
     sideBar.toggleClass('closed');
     chevron.toggleClass('rotated');
@@ -97,27 +98,29 @@ const plus = $('#plus');
 let limit = 5;
 
 function loadArticles(newLimit) {
+    $('#loadingSpinner').show();
     $.ajax({
         url: "/recentArticlesWithLimit/" + newLimit,
         method: "GET",
-        success: function(data) {
+        success: function (data) {
             if (data) {
-                    $('.homePreview').html(data);
+                $('#loadingSpinner').hide();
+                $('.homePreview').html(data);
             } else {
                 console.log('No data :(');
             }
         },
-        error: function() {
+        error: function () {
             console.error("Failed to fetch articles.");
         }
     });
 }
 
-$(document).ready(function() {
+$(document).ready(function () {
     loadArticles(limit);
 });
 
-plus.on('click', function() {
+plus.on('click', function () {
     limit += 1;
     console.log(limit)
     loadArticles(limit);

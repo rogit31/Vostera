@@ -16,15 +16,14 @@ if (!$_SESSION['loggedin'] || $_SESSION['user_id'] !== $authorId) {
 }
 
 ?>
-
 <!doctype html>
 <html lang="en">
 
 <head>
     <title>Vostera - Update Article</title>
-    <?php include __DIR__ . '/../components/head.php' ?>
+    <?php include_once __DIR__ . '/../components/head.php';?>
     <script src="https://cdn.tiny.cloud/1/1tpwed2c7xeky7pvn014hw49ang0yid4juflf5c17yn4ff30/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
-    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />
+    <script src="/js/articleScript.js" defer></script>
 </head>
 
 <body>
@@ -66,25 +65,14 @@ if (!$_SESSION['loggedin'] || $_SESSION['user_id'] !== $authorId) {
                 </div>
             </div>
             <label for="content">Content:</label>
-            <textarea id="content" name="content"><?php echo htmlspecialchars($content); ?></textarea>
+            <div id="searchResultsInline"></div>
+            <textarea id="content" name="content" class="textEditors"><?php echo htmlspecialchars($content); ?></textarea>
             <label for="secret_content">Secret content:</label>
-            <textarea id="secret_content" name="secret_content"><?php echo htmlspecialchars($secret_content); ?></textarea>
+            <textarea id="secret_content" name="secret_content" class="textEditors"><?php echo htmlspecialchars($secret_content); ?></textarea>
             <input type="hidden" name="article_id" value="<?php echo htmlspecialchars($articleId); ?>">
             <input type="hidden" name="slug" value="<?php echo htmlspecialchars($slug); ?>">
             <button type="submit">Save Article</button>
         </form>
-        <script>
-            tinymce.init({
-                selector: 'textarea',
-                height: '600px',
-                plugins: 'anchor autolink charmap codesample image link lists table visualblocks wordcount linkchecker media',
-                toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | spellcheckdialog typography | align lineheight | checklist numlist bullist indent outdent | removeformat',
-                mergetags_list: [
-                    { value: 'First.Name', title: 'First Name' },
-                    { value: 'Email', title: 'Email' },
-                ]
-            });
-        </script>
     </main>
 </div>
 </body>
