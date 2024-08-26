@@ -1,6 +1,6 @@
 <?php
 //AUTH CHECK
-if(!isset($_SESSION['loggedin']) && $articleData['secret'] == 'Y'){
+if (!isset($_SESSION['loggedin']) && $articleData['secret'] == 'Y') {
     header('location: /');
 }
 
@@ -9,12 +9,13 @@ if(!isset($_SESSION['loggedin']) && $articleData['secret'] == 'Y'){
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Vostera - Lore - <?= ucfirst($articleData['category']) ?> - <?= htmlspecialchars($articleData['title']) ?></title>
+    <title>Vostera - Lore - <?= ucfirst($articleData['category']) ?>
+        - <?= htmlspecialchars($articleData['title']) ?></title>
     <?php include_once __DIR__ . '/../components/head.php'; ?>
 </head>
 <body id="1">
 <div id="wrapper">
-    <?php include __DIR__ . '/../components/header.php'?>
+    <?php include __DIR__ . '/../components/header.php' ?>
     <ul class="breadcrumb">
         <li><a href="/">Home</a></li>
         <li><a href="/lore">Lore</a></li>
@@ -22,15 +23,13 @@ if(!isset($_SESSION['loggedin']) && $articleData['secret'] == 'Y'){
         <li><?= htmlspecialchars($articleData['title']) ?></li>
     </ul>
 
-    <div class="sidenav article-tile">
-        <ol>
-            <li><a href="#1">Top</a></li>
-            <!--Headers-->
-        </ol>
+    <div class="sidenav">
+        <!-- TODO: add headers here eventually -->
     </div>
 
     <main>
-        <?php  include_once  __DIR__ . '/../components/sideBar.php'; ?>
+        <?php include_once __DIR__ . '/../components/sideBar.php';
+        include_once __DIR__ . '/../components/sideBarMobileButton.php'; ?>
         <div class="article-tile">
             <h1><?= htmlspecialchars($articleData['title']) ?></h1>
             <?= $articleData['content'] ?><br>
@@ -38,7 +37,7 @@ if(!isset($_SESSION['loggedin']) && $articleData['secret'] == 'Y'){
                 echo $articleData['secret_content'];
             } ?>
         </div>
-        <?php  if ( isset($_SESSION['user_id']) && $_SESSION['user_id'] == $articleData['author_id']) {
+        <?php if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $articleData['author_id']) {
             echo "
         <span class='editorButtonsWrapper'>
             <form action='/edit-article/" . $articleData['slug'] . "' method='post'>
@@ -53,7 +52,8 @@ if(!isset($_SESSION['loggedin']) && $articleData['secret'] == 'Y'){
     </main>
 
     <div class="button-wrapper">
-        <button><a class="backbutton" href="/lore/<?= $articleData['category'] ?>">Back to <?= ucfirst($articleData['category']) ?></a></button>
+        <button><a class="backbutton" href="/lore/<?= $articleData['category'] ?>">Back
+                to <?= ucfirst($articleData['category']) ?></a></button>
         <button><a class="backbutton" href="/lore">Back to lore</a></button>
     </div>
 

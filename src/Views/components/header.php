@@ -5,18 +5,18 @@ $menu_items = [
     'playercharacters' => 'PCs',
     'houserules' => 'House Rules',
 ]
- ?>
+?>
 
 <header>
     <a href="/home"><img class="logo_absolute" src="/media/images/academylogo.svg" alt="Logo of the Academy"></a>
     <nav class="navbar">
         <a href="/home"><img class="logo" src="/media/images/academylogo.svg" alt="Logo of the Academy"></a>
         <ul class="nav-menu">
-            <?php foreach($menu_items as $page => $pageTitle): ?>
-            <li class="nav-item <?php echo $current_page == $page ? 'active-page' : ''; ?>">
-                <a href="/<?php echo $page;?>" class="nav-link"><?php echo $pageTitle; ?></a>
-            </li>
-            <?php endforeach?>
+            <?php foreach ($menu_items as $page => $pageTitle): ?>
+                <li class="nav-item <?php echo $current_page == $page ? 'active-page' : ''; ?>">
+                    <a href="/<?php echo $page; ?>" class="nav-link"><?php echo $pageTitle; ?></a>
+                </li>
+            <?php endforeach ?>
 
             <?php
             if (!isset($_SESSION['loggedin'])) : ?>
@@ -30,10 +30,13 @@ $menu_items = [
                     <a href="/logout" class="nav-link">Logout</a>
                 </li>
             <?php endif; ?>
+            <li class="nav-item">
+                <img class="loupeMobile nav-link" src="/media/images/loupe.svg" alt="loupe">
+            </li>
         </ul>
         <label for="searchbar"></label>
         <input type="text" id="searchbar" autocomplete="off" placeholder="Search for articles...">
-        <div id="searchresults"></div>
+        <div id="searchResults"></div>
 
         <div id="topRightWrapper">
             <img id="loupe" src="/media/images/loupe.svg" alt="loupe">

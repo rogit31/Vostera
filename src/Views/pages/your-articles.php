@@ -1,5 +1,5 @@
 <?php
-if (!isset($_SESSION['loggedin'])){
+if (!isset($_SESSION['loggedin'])) {
     header("Location: login");
 }
 ?>
@@ -17,9 +17,10 @@ if (!isset($_SESSION['loggedin'])){
     <?php include __DIR__ . '/../components/header.php'; ?>
     <main>
 
-        <?php  include_once  __DIR__ . '/../components/sideBar.php'; ?>
+        <?php include_once __DIR__ . '/../components/sideBar.php';
+        include_once __DIR__ . '/../components/sideBarMobileButton.php'; ?>
 
-            <h1>Your Articles</h1>
+        <h1>Your Articles</h1>
         <div class="allArticles">
             <?php
             foreach ($articles as $key => $article) {

@@ -20,7 +20,7 @@ foreach ($articles as $article) {
     echo '
                 <li class="itemPreview">
                       <a  class="headerPreview" href="/read-article/' . $slug . '"> ' . $article['title'] . ' </a>
-                      <div class="contentPreview">' . $excerpt . '
+                      <div class="contentPreview">' . $excerpt . ' </div>
                       <div class="excerptInfo">
                           <div class="excerptUsername">' . $username . '</div>
                           <div class="excerptDate">' . $date . '</div>

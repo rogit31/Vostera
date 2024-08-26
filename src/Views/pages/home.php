@@ -17,9 +17,15 @@
     <?php include __DIR__ . '/../components/header.php'; ?>
     <main>
 
-        <?php include_once __DIR__ . '/../components/sideBar.php'; ?>
+        <?php include_once __DIR__ . '/../components/sideBar.php';
+        include_once __DIR__ . '/../components/sideBarMobileButton.php';
+        ?>
         <div>
             <h1 id="welcome">WELCOME TO VOSTERA!</h1>
+            <h2>LOLOLOL</h2>
+            <aside class="asideHomeInfo">
+                <p class="infoLink"><a href="/read-article/getting-started-98">What is Vostera?</a></p>
+            </aside>
             <div class="">
                 <h3>Recent publishes or updates</h3>
                 <div id="loadingSpinner" style="display: none;">
@@ -28,7 +34,9 @@
                 <ul class="article-cards homePreview">
                 </ul>
             </div>
-            <button id="plus"> + MORE</button>
+            <div id="plusWrapper">
+                <button id="plus">+ MORE</button>
+            </div>
             <!--            <canvas id="canvas" width="600px" height="600px"> </canvas>-->
         </div>
 

@@ -1,5 +1,5 @@
 <?php
-if (!isset($_SESSION['loggedin'])){
+if (!isset($_SESSION['loggedin'])) {
     header("Location: login");
 }
 ?>
@@ -17,7 +17,8 @@ if (!isset($_SESSION['loggedin'])){
     <?php include __DIR__ . '/../components/header.php'; ?>
     <main>
 
-        <?php  include_once  __DIR__ . '/../components/sideBar.php'; ?>
+        <?php include_once __DIR__ . '/../components/sideBar.php';
+        include_once __DIR__ . '/../components/sideBarMobileButton.php'; ?>
 
         <h1>Your Drafts</h1>
         <div class="allArticles">
@@ -26,7 +27,7 @@ if (!isset($_SESSION['loggedin'])){
                 echo "
     <div class='resultCard'>
         <a href=\"/read-article/" . $article['slug'] . "\">" . $article['title'] . "</a>";
-                if ( isset($_SESSION['user_id']) && $_SESSION['user_id'] == $article['author_id']) {
+                if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $article['author_id']) {
                     echo "
         <span>
             <form action='/edit-article/" . $article['slug'] . "' method='post'>

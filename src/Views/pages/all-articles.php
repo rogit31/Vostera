@@ -4,7 +4,8 @@
 <head>
     <title> Vostera - All Articles </title>
     <meta name="description" content="Repository of all articles published on the Vostera website.">
-    <?php include __DIR__ . '/../components/head.php'; ?>
+    <?php include __DIR__ . '/../components/head.php';
+    include_once __DIR__ . '/../components/sideBarMobileButton.php'; ?>
 </head>
 
 <body>
@@ -12,16 +13,16 @@
     <?php include __DIR__ . '/../components/header.php'; ?>
     <main>
 
-        <?php  include_once  __DIR__ . '/../components/sideBar.php'; ?>
+        <?php include_once __DIR__ . '/../components/sideBar.php'; ?>
 
-            <h1>All articles</h1>
+        <h1>All articles</h1>
         <div class="allArticles">
             <?php
             foreach ($articles as $key => $article) {
                 echo "
     <div class='resultCard'>
         <a href=\"/read-article/" . $article['slug'] . "\">" . $article['title'] . "</a>";
-                if ( isset($_SESSION['user_id']) && $_SESSION['user_id'] == $article['author_id']) {
+                if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $article['author_id']) {
                     echo "
         <span>
             <form action='/edit-article/" . $article['slug'] . "' method='post'>
