@@ -116,7 +116,7 @@ deleteButton.on('click', function () {
 });
 
 // ---------------------------- SIDEBAR -----------------------------
-const sideNavButtonMobile = $('#openSideNavMobile');
+const sideNavButtonMobile = $('#openSideNavMobileButton');
 const chevron = $('#chevron');
 const sideBar = $('.sideBar');
 let chevronIsOpen = true;

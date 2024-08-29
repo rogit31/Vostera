@@ -16,7 +16,9 @@
         <?php include_once __DIR__ . '/../components/sideBar.php';
         include_once __DIR__ . '/../components/sideBarMobileButton.php'; ?>
         <h1>World Map of Vostera</h1>
-        <div id="map" style="height: 60vh; width:80vw; max-width:100%"></div>
+        <div class="mapWrapper">
+            <div id="map" style=""></div>
+        </div>
     </main>
     <script>
         // Initialize the map and set its view to a chosen geographical coordinates and a zoom level

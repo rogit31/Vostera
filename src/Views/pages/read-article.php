@@ -24,7 +24,8 @@ if (!isset($_SESSION['loggedin']) && $articleData['secret'] == 'Y') {
     </ul>
 
     <div class="sidenav">
-        <!-- TODO: add headers here eventually -->
+        <!-- TODO: add headers here eventually
+        TODO: Also a lot of media is stil broken, and it would be nice to have a media uploader integrated-->
     </div>
 
     <main>
@@ -50,12 +51,6 @@ if (!isset($_SESSION['loggedin']) && $articleData['secret'] == 'Y') {
         </span>";
         } ?>
     </main>
-
-    <div class="button-wrapper">
-        <button><a class="backbutton" href="/lore/<?= $articleData['category'] ?>">Back
-                to <?= ucfirst($articleData['category']) ?></a></button>
-        <button><a class="backbutton" href="/lore">Back to lore</a></button>
-    </div>
 
 </div>
 </body>
