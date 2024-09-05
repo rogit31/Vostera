@@ -619,12 +619,14 @@ button:hover {
   background-color: var(--white_black);
   border-radius: 8px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 8px;
 
   h2, h3, h4 {
     text-align: left;
   }
 
   h2 {
+    margin-top: .5rem;
     font-size: 18px;
   }
 
@@ -637,6 +639,9 @@ button:hover {
     font-weight: 500;
     color: var(--primary);
   }
+  hr{
+    margin: 0;
+  }
 
   p {
     font-size: 14px;
@@ -644,7 +649,7 @@ button:hover {
 
   .headerPreview {
     display: block;
-    font-size: 18px;
+    font-size: 1.5rem;
     text-align: center;
     font-family: var(--title-font);
     margin-bottom: 16px;
@@ -693,25 +698,26 @@ button:hover {
 
 #plus {
   color: white;
+  padding: 12px;
+  border-radius: 4px;
 }
 
 #plusWrapper {
   display: flex;
   justify-content: center;
+  margin: 2rem 0 2rem;
 }
 
 .infoLink {
+  margin: 4px;
   opacity: 90%;
 
   a {
     color: var(--inform);
-    text-decoration: none;
   }
 }
 
 .asideHomeInfo {
-  border: 1px solid red;
-  padding: 4px;
 }
 
 /*-----------------------------VISUALIZER --------------------------*/

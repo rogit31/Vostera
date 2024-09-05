@@ -22,9 +22,8 @@
         ?>
         <div>
             <h1 id="welcome">WELCOME TO VOSTERA!</h1>
-            <h2>LOLOLOL</h2>
             <aside class="asideHomeInfo">
-                <p class="infoLink"><a href="/read-article/getting-started-98">What is Vostera?</a></p>
+                <p class="infoLink"><a href="/read-article/getting-started-98">New here?</a></p>
             </aside>
             <div class="">
                 <h3>Recent publishes or updates</h3>

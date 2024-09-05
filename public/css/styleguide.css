@@ -563,11 +563,13 @@ button:hover {
   background-color: var(--white_black);
   border-radius: 8px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 8px;
 }
 .itemPreview h2, .itemPreview h3, .itemPreview h4 {
   text-align: left;
 }
 .itemPreview h2 {
+  margin-top: 0.5rem;
   font-size: 18px;
 }
 .itemPreview h3 {
@@ -578,12 +580,15 @@ button:hover {
   font-weight: 500;
   color: var(--primary);
 }
+.itemPreview hr {
+  margin: 0;
+}
 .itemPreview p {
   font-size: 14px;
 }
 .itemPreview .headerPreview {
   display: block;
-  font-size: 18px;
+  font-size: 1.5rem;
   text-align: center;
   font-family: var(--title-font);
   margin-bottom: 16px;
@@ -625,24 +630,22 @@ button:hover {
 }
 #plus {
   color: white;
+  padding: 12px;
+  border-radius: 4px;
 }
 
 #plusWrapper {
   display: flex;
   justify-content: center;
+  margin: 2rem 0 2rem;
 }
 
 .infoLink {
+  margin: 4px;
   opacity: 90%;
 }
 .infoLink a {
   color: var(--inform);
-  text-decoration: none;
-}
-
-.asideHomeInfo {
-  border: 1px solid red;
-  padding: 4px;
 }
 
 /*-----------------------------VISUALIZER --------------------------*/
