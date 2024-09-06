@@ -369,4 +369,56 @@ public function saveUpdatedArticle(){
         }
     }
 
+    public function sortArticles($search, $category, $sort, $loggedIn)
+    {
+        $db = new Database();
+        $conn = $db->connect();
+
+        $query = "SELECT * FROM articles WHERE isDraft = 0";
+
+        if (!empty($loggedIn)) {
+            $query .= " AND (secret = 'N' OR author_id = :author_id)";
+        } else {
+            $query .= " AND secret = 'N'";
+        }
+
+        if (!empty($search)) {
+            $query .= " AND title LIKE :search";
+        }
+
+        if (!empty($category)) {
+            $query .= " AND category = :category";
+        }
+
+        switch ($sort) {
+            case 'latest':
+                $query .= " ORDER BY last_updated DESC";
+                break;
+            case 'earliest':
+                $query .= " ORDER BY last_updated ASC";
+                break;
+            case 'alphabetical':
+                $query .= " ORDER BY title ASC";
+                break;
+            default:
+                $query .= " ORDER BY title ASC";
+        }
+
+        $stmt = $conn->prepare($query);
+
+        if (!empty($search)) {
+            $stmt->bindValue(':search', '%' . $search . '%', PDO::PARAM_STR);
+        }
+        if (!empty($category)) {
+            $stmt->bindValue(':category', $category, PDO::PARAM_STR);
+        }
+        if (!empty($loggedIn)) {
+            $stmt->bindValue(':author_id', $_SESSION['user_id'], PDO::PARAM_INT);
+        }
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
+
 }

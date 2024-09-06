@@ -9,6 +9,7 @@
     <?php include __DIR__ . '/../components/articleVisualizer.php' ?>
     <script type="text/javascript"> let articleData = [];
         articleData = <?php echo json_encode($data); ?></script>
+    <script src="/js/home.js" defer></script>
     <!--    <script src="/js/visualizer.js" defer></script>-->
 </head>
 

@@ -66,6 +66,7 @@ $router->post('save-draft', [$articleModel, 'saveDraft']);
 //--------------------------Live search--------------------------------
 $router->post('livesearch', [$searchController, 'liveSearch']);
 $router->post('articleLivesearch', [$searchController, 'articleLivesearch']);
+$router->get('articleSort', [$searchController, 'articleSort']);
 
 //--------------------DYNAMIC ARTICLE FETCHING -----------------------
 $router->get('recentArticlesWithLimit/{limit}', function ($limit)  {

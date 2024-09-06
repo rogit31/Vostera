@@ -29,7 +29,7 @@
                 foreach ($articles as $item) {
                     echo '
             
-            <li class="card">
+            <li class="resultCard">
                   <a href="/read-article/' . $item['slug'] . '">
                         <div class="header">' . $item['title'] . '</div>
                         <div class="body">' . $item['description'] . '</div>

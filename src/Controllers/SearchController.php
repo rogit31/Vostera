@@ -46,4 +46,25 @@ class SearchController {
         }
 
     }
+
+    public function articleSort(){
+        $articleModel = new ArticleModel();
+        $search = $_GET['searchbar'] ?? '';
+        $category = $_GET['category'] ?? '';
+        $sort = $_GET['sort'] ?? 'latest';
+        $loggedIn = isset($_SESSION['loggedin']);
+        $results = $articleModel->sortArticles($search, $category, $sort, $loggedIn);
+
+        if ($results) {
+            foreach ($results as $row) {
+                $title = $row["title"];
+                $url = '/read-article/' . $row["slug"];
+                echo ' <div class="resultCard">
+                            <a  href=" '. $url .  '"> ' . $title . '</a>
+                       </div>';
+            }
+        } else {
+            echo "<p class='result warning'>No articles found</p>";
+        }
+        }
 }
