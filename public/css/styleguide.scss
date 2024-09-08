@@ -107,7 +107,7 @@ h1, h2, h3 {
 
 h1 {
   font-size: 2rem;
-  padding: 12px 0 12px;
+  margin: 2rem 0 1rem;
 }
 
 h2 {
@@ -152,7 +152,24 @@ audio {
   max-width: 100%;
 }
 
-/*------------------------HEADER STUFF------------------------------*/
+//----------------------- FORMS ------------------------//
+
+form {
+
+  select, input {
+    border: 1px solid #D0D0D0;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    padding: 8px;
+    border-radius: 4px;
+  }
+
+  label {
+    margin-top: 10px;
+  }
+}
+
+/*------------------------HEADER STUFF-------------------------*/
 //.logo {
 //  width: 93px;
 //  vertical-align: middle;
@@ -328,7 +345,11 @@ header {
 .allArticles {
   display: grid;
   gap: 8px;
-  margin: 2vw;
+  margin: 2vw 2vw 2rem 2vw;
+}
+
+.resultCount {
+  opacity: 0.9;
 }
 
 .resultCard {
@@ -338,7 +359,11 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 2px 1px #bcbcbc;
+  box-shadow: 0 2px 2px 1px rgba(188, 188, 188, 0.5);
+
+  a {
+    width: 100%;
+  }
 
   button {
     width: 40px;
@@ -347,6 +372,7 @@ header {
     justify-content: center;
     align-items: center;
     padding: 4px;
+    border-radius: 4px;
   }
 
   button img {
@@ -362,6 +388,13 @@ header {
 
 .resultCard:hover {
   background-color: #c6c5c5;
+}
+
+//-----------------ALL-ARTICLES FORM-SORT-------------------
+#filterForm {
+  display: flex;
+  flex-direction: column;
+  margin: 8px 8px 1.5rem 8px;
 }
 
 
@@ -420,6 +453,10 @@ header {
   border-radius: 8px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
   margin-top: 24px;
+
+  hr {
+    max-width: 100%;
+  }
 
   a {
     color: var(--primary);
@@ -484,8 +521,9 @@ header {
 }
 
 hr {
-  margin: 4px 0 1rem;
-  border-top: 2px solid var(--primary);
+  border: 1px solid var(--secondary);
+  max-width: 80vw;
+  margin: 0 auto 1rem;
 }
 
 /*----------------SIDE NAVIGATION---------------*/
@@ -585,6 +623,7 @@ hr {
   bottom: 44px;
   right: 12px;
   border-radius: 8px;
+  box-shadow: 0 4px 8px 2px gray;
 }
 
 /*BUTTON STYLING*/
@@ -639,11 +678,13 @@ button:hover {
     font-weight: 500;
     color: var(--primary);
   }
-  hr{
-    margin: 0;
+
+  hr {
+    margin: 0 0 4px;
   }
 
   p {
+    text-indent: 8px;
     font-size: 14px;
   }
 
@@ -823,15 +864,9 @@ button:hover {
 
 /*LOGIN FORM*/
 .auth {
-  width: 40vw;
   margin-top: 20px;
-  background-color: #373634;
   padding: 16px;
   border-radius: 4px;
-
-  label, h1 {
-    color: white;
-  }
 
   h1 {
     margin: 12px;
@@ -870,20 +905,24 @@ button:hover {
 
 #registerText {
   margin-top: 8px;
-  color: white;
+  text-align: center;
 
   a {
     color: var(--secondary);
   }
 }
 
-/*CREATE ARTICLE STUFF*/
+/*------------------ARTICLE EDITORS-----------------*/
 br {
   height: 8px;
 }
 
 .tox .tox-tinymce {
   //TODO: FORMAT THE TINYMCE EDITOR BETTER
+}
+
+.articleEditingForm {
+  margin: 8px;
 }
 
 .metadataInputWrapper {
@@ -910,12 +949,16 @@ br {
   }
 }
 
+#is_draft {
+  box-shadow: none;
+}
+
 .metadataDropdownWrapper {
   display: flex;
-  gap: 16px;
+  gap: 8px;
 
   select {
-    width: 200px;
+    width: 180px;
     height: 40px;
     padding: 8px 16px;
     border-radius: 8px;

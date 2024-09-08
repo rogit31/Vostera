@@ -1,15 +1,16 @@
-$(document).ready(function() {
+$(document).ready(function () {
     tinymce.init({
+        browser_spellcheck: true,
         selector: 'textarea.textEditors',
         height: '600px',
         plugins: 'anchor charmap codesample image link lists table visualblocks wordcount media',
         toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | spellcheckdialog typography | align lineheight | checklist numlist bullist indent outdent | removeformat',
         mergetags_list: [
-            { value: 'First.Name', title: 'First Name' },
-            { value: 'Email', title: 'Email' },
+            {value: 'First.Name', title: 'First Name'},
+            {value: 'Email', title: 'Email'},
         ],
-        setup: function(editor) {
-            editor.on('input', function() {
+        setup: function (editor) {
+            editor.on('input', function () {
                 handleEditorInput(editor.getContent());
             });
         }
@@ -37,10 +38,10 @@ function fetchArticles(keyword) {
         $.ajax({
             url: "/articleLivesearch",
             method: 'POST',
-            data: { input: keyword },
-            success: function(data) {
+            data: {input: keyword},
+            success: function (data) {
                 searchResultsContainer.html(data);
-                $('.inlineSearchResult').on('click', function(e) {
+                $('.inlineSearchResult').on('click', function (e) {
                     e.preventDefault();
                     const href = $(this).attr('href');
                     const title = $(this).text();
@@ -48,7 +49,7 @@ function fetchArticles(keyword) {
                     searchResultsContainer.html('').hide();
                 });
             },
-            error: function(xhr, status, error) {
+            error: function (xhr, status, error) {
                 console.error("Failed to fetch articles. " + error);
             }
         });
@@ -57,7 +58,7 @@ function fetchArticles(keyword) {
 
 function insertLinkIntoEditor(href, title, keyword) {
     const editor = tinymce.activeEditor;
-    const content = editor.getContent({ format: 'html' });
+    const content = editor.getContent({format: 'html'});
     const keywordRegex = new RegExp('@' + keyword, 'g');
 
     // Find the position of the keyword

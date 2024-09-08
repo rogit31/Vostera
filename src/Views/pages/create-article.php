@@ -1,14 +1,15 @@
-<?php if(!$_SESSION['loggedin']){
+<?php if (!$_SESSION['loggedin']) {
     header('location: /login');
-}?>
+} ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <title> Vostera - Create Article </title>
-    <?php include_once __DIR__ . '/../components/head.php';?>
-    <script src="https://cdn.tiny.cloud/1/1tpwed2c7xeky7pvn014hw49ang0yid4juflf5c17yn4ff30/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+    <?php include_once __DIR__ . '/../components/head.php'; ?>
+    <script src="https://cdn.tiny.cloud/1/1tpwed2c7xeky7pvn014hw49ang0yid4juflf5c17yn4ff30/tinymce/7/tinymce.min.js"
+            referrerpolicy="origin"></script>
     <script src="js/articleScript.js" defer></script>
 </head>
 
@@ -16,16 +17,17 @@
 <div id="wrapper">
     <?php include __DIR__ . '/../components/header.php' ?>
     <main>
-        <?php  include_once __DIR__ . '/../components/sideBar.php'; ?>
+        <?php include_once __DIR__ . '/../components/sideBar.php'; ?>
         <h1 id="welcome">Create an article</h1>
-        <form action="save-article" method="POST">
+        <form action="save-article" method="POST" class="articleEditingForm">
 
             <div class="metadataInputWrapper">
                 <label for="title">Title <span class="asterisk">*</span></label>
                 <input type="text" id="title" name="title" placeholder="Title">
 
                 <label for="description">Description <span class="asterisk">*</span></label>
-                <input autocomplete="off" type="text" id="description" name="description" placeholder="What is this article about?">
+                <input autocomplete="off" type="text" id="description" name="description"
+                       placeholder="What is this article about?">
                 <?php
                 session_start();
                 if (isset($_SESSION['warning'])) {
@@ -69,7 +71,7 @@
             <label for="secret_content">Secret content</label>
             <textarea id="secret_content" class="textEditors" name="secret_content"></textarea>
             <button type="submit" formaction="save-article">Save Article</button>
-            <button type="submit" formaction="save-draft">Save Draft </button>
+            <button type="submit" formaction="save-draft">Save Draft</button>
         </form>
     </main>
 </div>

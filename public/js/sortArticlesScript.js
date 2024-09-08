@@ -1,4 +1,5 @@
-$(document).ready(function() {
+$(document).ready(function () {
+    $('#loadingSpinner').show();
 
     function fetchArticles() {
         const search = $("#searchbarInline").val();
@@ -14,17 +15,19 @@ $(document).ready(function() {
                 sort: sort
             },
             success: function (response) {
-                console.log(response);
+                $('#loadingSpinner').hide();
                 $(".allArticles").html(response);
             },
             error: function () {
-                alert("failed");
+                $(".allArticles").html("Failed to fetch articles.");
             }
         })
     }
-        $("#filterForm").on("input change", 'input, select', fetchArticles);
-        $('#filterForm').on('submit', function (e) {
-            e.preventDefault();
-            fetchArticles();
-        });
+
+    fetchArticles();
+    $("#filterForm").on("input change", 'input, select', fetchArticles);
+    $('#filterForm').on('submit', function (e) {
+        e.preventDefault();
+        fetchArticles();
+    });
 })

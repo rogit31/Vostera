@@ -19,8 +19,8 @@
         <h1>All articles</h1>
         <form action="" id="filterForm">
 
-            <label for="searchbar"></label>
-            <input type="text" id="searchbarInline" autocomplete="off" placeholder="Search for articles...">
+            <label for="searchbarInline">Filter</label>
+            <input type="text" id="searchbarInline" autocomplete="off" placeholder="Filter by title">
 
             <label for="category">Category</label>
             <select name="category" id="category">
@@ -36,37 +36,21 @@
                 <option value="meta">Meta</option>
             </select>
 
-            <label for="sort">Sort by:</label>
+            <label for="sort">Sort by</label>
             <select name="sort" id="sort">
+                <option value="alphabetical">Alphabetical</option>
                 <option value="latest">Latest</option>
                 <option value="earliest">Earliest</option>
-                <option value="alphabetical">Alphabetical</option>
             </select>
 
             <button type="submit" style="display: none">Submit</button>
         </form>
-
+        <hr>
+        <div id="loadingSpinner" style="display: none;">
+            <img src="/media/images/pixelSword.png" alt="Loading..."/>
+        </div>
         <div class="allArticles">
-            <?php
-            foreach ($articles as $key => $article) {
-                echo "
-    <div class='resultCard'>
-        <a href=\"/read-article/" . $article['slug'] . "\">" . $article['title'] . "</a>";
-                if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $article['author_id']) {
-                    echo "
-        <span>
-            <form action='/edit-article/" . $article['slug'] . "' method='post'>
-                <button type='submit'><img class='articleCardIcon' src='/media/images/editIcon.svg' alt='Edit'></button>
-            </form>
-            <form action='/delete-article/" . $article['slug'] . "' method='post'>
-                <input type='hidden' name='slug' id='slug' value='" . $article['slug'] . "'>
-                <button class='deleteButton' type='submit'><img class='articleCardIcon' src='/media/images/trashIcon.svg' alt='Delete'></button>
-            </form>
-        </span>";
-                }
-                echo "</div>";
-            }
-            ?>
+
         </div>
 
     </main>
