@@ -27,7 +27,7 @@ $router->get('houserules', [$pageController, 'houserules']);
 $router->get('contact', [$pageController, 'contact']);
 $router->get('login', [$pageController, 'login']);
 $router->get('playercharacters', [$pageController, 'playercharacters']);
-$router ->get('all-articles', [$pageController, 'allArticles']);
+$router->get('all-articles', [$pageController, 'allArticles']);
 $router->get('your-articles', [$pageController, 'yourArticles']);
 $router->get('your-drafts', [$pageController, 'yourDrafts']);
 $router->get('your-secrets', [$pageController, 'yourSecrets']);
@@ -49,27 +49,30 @@ $router->get('register', [$pageController, 'register']);
 $router->post('register/process', [$authController, 'processRegister']);
 
 // -------------------- ARTICLE ROUTING ---------------------------
-$router->get('read-article/{slug}', function($slug) use ($pageController) {
+$router->get('read-article/{slug}', function ($slug) use ($pageController) {
     return $pageController->readArticle($slug);
 });
-$router->post('edit-article/{slug}', function($slug) use ($pageController){
+$router->post('edit-article/{slug}', function ($slug) use ($pageController) {
     return $pageController->editArticle($slug);
 });
-$router->post('delete-article/{slug}', function($slug) use($pageController){
+$router->post('delete-article/{slug}', function ($slug) use ($pageController) {
     return $pageController->deleteArticle($slug);
 });
 $router->post('save-updated-article/{slug}', [$articleModel, 'saveUpdatedArticle']);
-$router->get('create-article' , [$pageController, 'createArticle']);
-$router->post('save-article' , [$articleModel, 'saveArticle']);
+$router->get('create-article', [$pageController, 'createArticle']);
+$router->post('save-article', [$articleModel, 'saveArticle']);
 $router->post('save-draft', [$articleModel, 'saveDraft']);
 
 //--------------------------Live search--------------------------------
 $router->post('livesearch', [$searchController, 'liveSearch']);
 $router->post('articleLivesearch', [$searchController, 'articleLivesearch']);
 $router->get('articleSort', [$searchController, 'articleSort']);
+$router->get('sortUserArticles', [$searchController, 'sortUserArticles']);
+$router->get('sortUserDrafts', [$searchController, 'sortUserDrafts']);
+$router->get('sortUserSecrets', [$searchController, 'sortUserSecrets']);
 
 //--------------------DYNAMIC ARTICLE FETCHING -----------------------
-$router->get('recentArticlesWithLimit/{limit}', function ($limit)  {
+$router->get('recentArticlesWithLimit/{limit}', function ($limit) {
     $articleController = new ArticleController();
     $articleController->getRecentArticles($limit);
 });

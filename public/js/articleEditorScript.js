@@ -35,6 +35,7 @@ function fetchArticles(keyword) {
         searchResultsContainer.hide();
     } else {
         searchResultsContainer.show();
+        searchResultsContainer.css('display', 'flex');
         $.ajax({
             url: "/articleLivesearch",
             method: 'POST',

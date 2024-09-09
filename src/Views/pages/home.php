@@ -24,7 +24,9 @@
         <div>
             <h1 id="welcome">WELCOME TO VOSTERA!</h1>
             <aside class="asideHomeInfo">
-                <p class="infoLink"><a href="/read-article/getting-started-98">New here?</a></p>
+                <button class="infoLink">
+                    <a href="/read-article/getting-started-98">New here?</a>
+                </button>
             </aside>
             <div class="">
                 <h3>Recent publishes or updates</h3>

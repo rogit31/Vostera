@@ -10,7 +10,7 @@
     <?php include_once __DIR__ . '/../components/head.php'; ?>
     <script src="https://cdn.tiny.cloud/1/1tpwed2c7xeky7pvn014hw49ang0yid4juflf5c17yn4ff30/tinymce/7/tinymce.min.js"
             referrerpolicy="origin"></script>
-    <script src="js/articleScript.js" defer></script>
+    <script src="js/articleEditorScript.js" defer></script>
 </head>
 
 <body>
@@ -70,8 +70,10 @@
             <br>
             <label for="secret_content">Secret content</label>
             <textarea id="secret_content" class="textEditors" name="secret_content"></textarea>
-            <button type="submit" formaction="save-article">Save Article</button>
-            <button type="submit" formaction="save-draft">Save Draft</button>
+            <div class="articleEditingButtonsWrapper">
+                <button type="submit" class="saveArticleButton" formaction="save-article">Save article</button>
+                <button type="submit" class="saveArticleButton" formaction="save-draft">Save draft</button>
+            </div>
         </form>
     </main>
 </div>

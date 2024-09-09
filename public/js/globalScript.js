@@ -38,7 +38,6 @@ function enableDarkMode() {
     localStorage.setItem('darkMode', darkModeEnabled.toString());
     html.toggleClass('darkMode', darkModeEnabled);
     eye.attr('src', darkModeEnabled ? '/media/images/blink-svgrepo-com.svg' : '/media/images/eye-svgrepo-com.svg');
-    console.log(localStorage.getItem('darkMode'));
 };
 
 eye.on('click', enableDarkMode);

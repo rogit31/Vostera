@@ -40,7 +40,7 @@ if (!isset($_SESSION['loggedin']) && $articleData['secret'] == 'Y') {
         </div>
         <?php if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $articleData['author_id']) {
             echo "
-        <span class='editorButtonsWrapper'>
+        <span class='articleEditingButtonsWrapper'>
             <form action='/edit-article/" . $articleData['slug'] . "' method='post'>
                 <button type='submit' class='editorButtons'><img src='/media/images/editIcon.svg' alt='Edit'></button>
             </form>

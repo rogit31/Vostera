@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Models;
 
 use App\Config\Database;
@@ -21,6 +22,7 @@ class ArticleModel
         $stmt = $conn->query($sql);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
     public function getAllPublishedArticlesOrderedByTitle(): false|array
     {
         $db = new Database();
@@ -169,15 +171,15 @@ class ArticleModel
         $user_id = $_SESSION['user_id'];
         $query = "SELECT title, slug, description, author_id FROM articles WHERE author_id = ? ORDER BY title";
         $stmt = $conn->prepare($query);
-        try{
+        try {
             $stmt->execute([$user_id]);
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
-        }
-        catch(PDOException $e){
+        } catch (PDOException $e) {
             echo $e->getMessage();
             return false;
         }
     }
+
     public function getYourDrafts(): false|array
     {
         $db = new Database();
@@ -185,15 +187,15 @@ class ArticleModel
         $user_id = $_SESSION['user_id'];
         $query = "SELECT title, slug, description, isDraft, author_id FROM articles WHERE author_id = ? AND isDraft = ? ORDER BY title";
         $stmt = $conn->prepare($query);
-        try{
+        try {
             $stmt->execute([$user_id, 1]);
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
-        }
-        catch(PDOException $e){
+        } catch (PDOException $e) {
             echo $e->getMessage();
             return false;
         }
     }
+
     public function getYourSecrets(): false|array
     {
         $db = new Database();
@@ -201,11 +203,10 @@ class ArticleModel
         $user_id = $_SESSION['user_id'];
         $query = "SELECT title, slug, description, author_id FROM articles WHERE author_id = ? AND secret=? ORDER BY title";
         $stmt = $conn->prepare($query);
-        try{
+        try {
             $stmt->execute([$user_id, 'Y']);
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
-        }
-        catch(PDOException $e){
+        } catch (PDOException $e) {
             echo $e->getMessage();
             return false;
         }
@@ -252,16 +253,17 @@ class ArticleModel
         $slug = $helpers->generateSlugById($title, $article_id);
         $query = 'UPDATE articles SET slug = ? WHERE article_id = ?';
         $stmt = $conn->prepare($query);
-        try{
+        try {
             $stmt->execute([$slug, $article_id]);
             header("Location: read-article/$slug");
-        }
-        catch(PDOException $e){
+        } catch (PDOException $e) {
             echo $e->getMessage();
             return false;
         }
     }
-    public function saveDraft(){
+
+    public function saveDraft()
+    {
         $db = new Database();
         $conn = $db->connect();
         $author_id = $_SESSION['user_id'];
@@ -302,17 +304,17 @@ class ArticleModel
         $slug = $helpers->generateSlugById($title, $article_id);
         $query = 'UPDATE articles SET slug = ? WHERE article_id = ?';
         $stmt = $conn->prepare($query);
-        try{
+        try {
             $stmt->execute([$slug, $article_id]);
             header("Location: read-article/$slug");
-        }
-        catch(PDOException $e){
+        } catch (PDOException $e) {
             echo $e->getMessage();
             return false;
         }
     }
 
-public function saveUpdatedArticle(){
+    public function saveUpdatedArticle()
+    {
         $db = new Database();
         $conn = $db->connect();
         $title = $_POST['title'];
@@ -325,51 +327,51 @@ public function saveUpdatedArticle(){
         $articleId = $_POST['article_id'];
         $slug = $_POST['slug'];
 
-    if (empty($title) || empty($description) || empty($content)) {
-        header("Location: /edit-article/$slug");
-        echo 'Fields cannot be empty';
-        return false;
+        if (empty($title) || empty($description) || empty($content)) {
+            header("Location: /edit-article/$slug");
+            echo 'Fields cannot be empty';
+            return false;
+        }
+
+        if (preg_match("/<script[\s\S]*?>[\s\S]*?<\/script>/i", $content) || preg_match(
+                "/<script[\s\S]*?>[\s\S]*?<\/script>/i",
+                $secret_content
+            )) {
+            header("Location: /edit-article/$slug");
+            echo 'Content cannot contain script tags';
+            return false;
+        }
+
+        $query = "UPDATE articles SET title =?, description =?, category =?, secret =?, content =?, secret_content =?, isDraft =? WHERE article_id = ? ";
+        $stmt = $conn->prepare($query);
+
+        try {
+            $stmt->execute([$title, $description, $category, $secret, $content, $secret_content, $isDraft, $articleId]);
+            header("Location: /read-article/$slug");
+        } catch (PDOException $e) {
+            echo 'Something went wrong:' . $e->getMessage();
+            return false;
+        }
     }
 
-    if (preg_match("/<script[\s\S]*?>[\s\S]*?<\/script>/i", $content) || preg_match(
-            "/<script[\s\S]*?>[\s\S]*?<\/script>/i",
-            $secret_content
-        )) {
-        header("Location: /edit-article/$slug");
-        echo 'Content cannot contain script tags';
-        return false;
-    }
-
-    $query = "UPDATE articles SET title =?, description =?, category =?, secret =?, content =?, secret_content =?, isDraft =? WHERE article_id = ? ";
-    $stmt = $conn->prepare($query);
-
-    try{
-         $stmt->execute([$title, $description, $category, $secret, $content, $secret_content, $isDraft, $articleId]);
-        header("Location: /read-article/$slug");
-    }
-    catch (PDOException $e){
-        echo 'Something went wrong:' . $e->getMessage();
-        return false;
-    }
-}
-    public function deleteArticle($slug){
+    public function deleteArticle($slug)
+    {
 
         $db = new Database();
         $conn = $db->connect();
         $query = "DELETE FROM articles WHERE slug = ?";
         $stmt = $conn->prepare($query);
 
-        try{
+        try {
             $stmt->execute([$slug]);
             echo 'Article deleted.';
             header("Location: /your-articles");
-        }
-        catch (PDOException $e){
+        } catch (PDOException $e) {
             echo 'Something went wrong: ' . $e->getMessage();
         }
     }
 
-    public function sortArticles($search, $category, $sort, $loggedIn)
+    public function sortAllArticles($search, $category, $sort, $loggedIn)
     {
         $db = new Database();
         $conn = $db->connect();
@@ -419,6 +421,127 @@ public function saveUpdatedArticle(){
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function sortUserArticles($search, $category, $sort, $userID)
+    {
+        $db = new Database();
+        $conn = $db->connect();
 
+        $query = "SELECT * FROM articles WHERE author_id = :author_id";
+
+        if (!empty($search)) {
+            $query .= " AND title LIKE :search";
+        }
+
+        if (!empty($category)) {
+            $query .= " AND category = :category";
+        }
+
+        switch ($sort) {
+            case 'latest':
+                $query .= " ORDER BY last_updated DESC";
+                break;
+            case 'earliest':
+                $query .= " ORDER BY last_updated ASC";
+                break;
+            case 'alphabetical':
+                $query .= " ORDER BY title ASC";
+                break;
+            default:
+                $query .= " ORDER BY title ASC";
+        }
+
+        $stmt = $conn->prepare($query);
+        $stmt->bindValue(':author_id', $userID, PDO::PARAM_INT);
+        if (!empty($search)) {
+            $stmt->bindValue(':search', '%' . $search . '%', PDO::PARAM_STR);
+        }
+        if (!empty($category)) {
+            $stmt->bindValue(':category', $category, PDO::PARAM_STR);
+        }
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function sortUserDrafts(mixed $search, mixed $category, mixed $sort, mixed $userID)
+    {
+        $db = new Database();
+        $conn = $db->connect();
+
+        $query = "SELECT * FROM articles WHERE isDraft = 1 AND author_id = :author_id";
+
+        if (!empty($search)) {
+            $query .= " AND title LIKE :search";
+        }
+
+        if (!empty($category)) {
+            $query .= " AND category = :category";
+        }
+
+        switch ($sort) {
+            case 'latest':
+                $query .= " ORDER BY last_updated DESC";
+                break;
+            case 'earliest':
+                $query .= " ORDER BY last_updated ASC";
+                break;
+            case 'alphabetical':
+                $query .= " ORDER BY title ASC";
+                break;
+            default:
+                $query .= " ORDER BY title ASC";
+        }
+
+        $stmt = $conn->prepare($query);
+        $stmt->bindValue(':author_id', $userID, PDO::PARAM_INT);
+        if (!empty($search)) {
+            $stmt->bindValue(':search', '%' . $search . '%', PDO::PARAM_STR);
+        }
+        if (!empty($category)) {
+            $stmt->bindValue(':category', $category, PDO::PARAM_STR);
+        }
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function sortUserSecrets(mixed $search, mixed $category, mixed $sort, mixed $userID)
+    {
+        $db = new Database();
+        $conn = $db->connect();
+
+        $query = "SELECT * FROM articles WHERE secret = 'Y' AND author_id = :author_id";
+
+        if (!empty($search)) {
+            $query .= " AND title LIKE :search";
+        }
+
+        if (!empty($category)) {
+            $query .= " AND category = :category";
+        }
+
+        switch ($sort) {
+            case 'latest':
+                $query .= " ORDER BY last_updated DESC";
+                break;
+            case 'earliest':
+                $query .= " ORDER BY last_updated ASC";
+                break;
+            case 'alphabetical':
+                $query .= " ORDER BY title ASC";
+                break;
+            default:
+                $query .= " ORDER BY title ASC";
+        }
+
+        $stmt = $conn->prepare($query);
+        $stmt->bindValue(':author_id', $userID, PDO::PARAM_INT);
+        if (!empty($search)) {
+            $stmt->bindValue(':search', '%' . $search . '%', PDO::PARAM_STR);
+        }
+        if (!empty($category)) {
+            $stmt->bindValue(':category', $category, PDO::PARAM_STR);
+        }
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 
 }

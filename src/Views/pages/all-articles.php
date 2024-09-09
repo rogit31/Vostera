@@ -6,7 +6,7 @@
     <meta name="description" content="Repository of all articles published on the Vostera website.">
     <?php include __DIR__ . '/../components/head.php';
     include_once __DIR__ . '/../components/sideBarMobileButton.php'; ?>
-    <script src="/js/sortArticlesScript.js" defer></script>
+    <script src="/js/sortAllArticles.js" defer></script>
 </head>
 
 <body>

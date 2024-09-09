@@ -11,7 +11,7 @@
       rel="stylesheet">
 <!-- JS -->
 <script src="/js/jquery-3.7.1.min.js" defer="defer"></script>
-<script src="/js/script.js" defer="defer"></script>
+<script src="/js/globalScript.js" defer="defer"></script>
 
 <!--Open Graph -->
 <meta property="og:title" content="Vostera">

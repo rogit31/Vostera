@@ -24,7 +24,7 @@ if (!$_SESSION['loggedin'] || $_SESSION['user_id'] !== $authorId) {
     <?php include_once __DIR__ . '/../components/head.php'; ?>
     <script src="https://cdn.tiny.cloud/1/1tpwed2c7xeky7pvn014hw49ang0yid4juflf5c17yn4ff30/tinymce/7/tinymce.min.js"
             referrerpolicy="origin"></script>
-    <script src="/js/articleScript.js" defer></script>
+    <script src="/js/articleEditorScript.js" defer></script>
 </head>
 
 <body>
@@ -71,16 +71,18 @@ if (!$_SESSION['loggedin'] || $_SESSION['user_id'] !== $authorId) {
                     <input type="checkbox" id="is_draft" name="is_draft" <?php echo ($isDraft == 1) ? 'checked' : '' ?>>
                 </div>
             </div>
-            <label for="content">Content:</label>
+            <label for="content">Content</label>
             <div id="searchResultsInline"></div>
             <textarea id="content" name="content"
                       class="textEditors"><?php echo htmlspecialchars($content); ?></textarea>
-            <label for="secret_content">Secret content:</label>
+            <label for="secret_content">Secret content</label>
             <textarea id="secret_content" name="secret_content"
                       class="textEditors"><?php echo htmlspecialchars($secret_content); ?></textarea>
             <input type="hidden" name="article_id" value="<?php echo htmlspecialchars($articleId); ?>">
             <input type="hidden" name="slug" value="<?php echo htmlspecialchars($slug); ?>">
-            <button type="submit">Save Article</button>
+            <div class="articleEditingButtonsWrapper">
+                <button type="submit" class="saveArticleButton">Save Article</button>
+            </div>
         </form>
     </main>
 </div>

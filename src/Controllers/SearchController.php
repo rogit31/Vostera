@@ -61,13 +61,14 @@ class SearchController
         $sort = $_GET['sort'] ?? 'latest';
         $loggedIn = isset($_SESSION['loggedin']);
         $articleCount = 0;
-        $results = $articleModel->sortArticles($search, $category, $sort, $loggedIn);
+        $results = $articleModel->sortAllArticles($search, $category, $sort, $loggedIn);
 
         if ($results) {
             foreach ($results as $row) {
                 $articleCount++;
             }
             echo "<p class='resultCount'>Articles found: " . $articleCount . "</p>";
+            echo " <div class='foundArticlesWrapper'>";
             foreach ($results as $article) {
                 echo "
     <div class='resultCard'>
@@ -86,7 +87,127 @@ class SearchController
                 }
                 echo "</div>";
             }
+            echo "</div>";
+        } else {
+            echo "<p class='result warning'>No articles found</p>";
+        }
+    }
 
+    public function sortUserArticles()
+    {
+        $articleModel = new ArticleModel();
+        $search = $_GET['searchbar'] ?? '';
+        $category = $_GET['category'] ?? '';
+        $sort = $_GET['sort'] ?? 'latest';
+        $userID = $_SESSION['user_id'];
+        $articleCount = 0;
+        $results = $articleModel->sortUserArticles($search, $category, $sort, $userID);
+
+        if ($results) {
+            foreach ($results as $row) {
+                $articleCount++;
+            }
+            echo "<p class='resultCount'>Articles found: " . $articleCount . "</p>";
+            echo " <div class='foundArticlesWrapper'>";
+            foreach ($results as $article) {
+                echo "
+    <div class='resultCard'>
+        <a href=\"/read-article/" . $article['slug'] . "\">" . $article['title'] . "</a>";
+                if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $article['author_id']) {
+                    echo "
+        <span>
+            <form action='/edit-article/" . $article['slug'] . "' method='post'>
+                <button type='submit'><img class='articleCardIcon' src='/media/images/editIcon.svg' alt='Edit'></button>
+            </form>
+            <form action='/delete-article/" . $article['slug'] . "' method='post'>
+                <input type='hidden' name='slug' id='slug' value='" . $article['slug'] . "'>
+                <button class='deleteButton' type='submit'><img class='articleCardIcon' src='/media/images/trashIcon.svg' alt='Delete'></button>
+            </form>
+        </span>";
+                }
+                echo "</div>";
+            }
+            echo "</div>";
+        } else {
+            echo "<p class='result warning'>No articles found</p>";
+        }
+    }
+
+    public function sortUserDrafts()
+    {
+        $articleModel = new ArticleModel();
+        $search = $_GET['searchbar'] ?? '';
+        $category = $_GET['category'] ?? '';
+        $sort = $_GET['sort'] ?? 'latest';
+        $userID = $_SESSION['user_id'];
+        $articleCount = 0;
+        $results = $articleModel->sortUserDrafts($search, $category, $sort, $userID);
+
+        if ($results) {
+            foreach ($results as $row) {
+                $articleCount++;
+            }
+            echo "<p class='resultCount'>Articles found: " . $articleCount . "</p>";
+            echo " <div class='foundArticlesWrapper'>";
+            foreach ($results as $article) {
+                echo "
+    <div class='resultCard'>
+        <a href=\"/read-article/" . $article['slug'] . "\">" . $article['title'] . "</a>";
+                if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $article['author_id']) {
+                    echo "
+        <span>
+            <form action='/edit-article/" . $article['slug'] . "' method='post'>
+                <button type='submit'><img class='articleCardIcon' src='/media/images/editIcon.svg' alt='Edit'></button>
+            </form>
+            <form action='/delete-article/" . $article['slug'] . "' method='post'>
+                <input type='hidden' name='slug' id='slug' value='" . $article['slug'] . "'>
+                <button class='deleteButton' type='submit'><img class='articleCardIcon' src='/media/images/trashIcon.svg' alt='Delete'></button>
+            </form>
+        </span>";
+                }
+                echo "</div>";
+            }
+            echo "</div>";
+        } else {
+            echo "<p class='result warning'>No articles found</p>";
+        }
+    }
+
+    public function sortUserSecrets()
+    {
+        $articleModel = new ArticleModel();
+        $search = $_GET['searchbar'] ?? '';
+        $category = $_GET['category'] ?? '';
+        $sort = $_GET['sort'] ?? 'latest';
+        $userID = $_SESSION['user_id'];
+        $articleCount = 0;
+        $results = $articleModel->sortUserSecrets($search, $category, $sort, $userID);
+
+        if ($results) {
+            foreach ($results as $row) {
+                $articleCount++;
+            }
+            echo "<p class='resultCount'>Articles found: " . $articleCount . "</p>";
+            echo " <div class='foundArticlesWrapper'>";
+            foreach ($results as $article) {
+                echo "
+    <div class='resultCard'>
+        <a href=\"/read-article/" . $article['slug'] . "\">" . $article['title'] . "</a>";
+                if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $article['author_id']) {
+                    echo "
+        <span>
+            <form action='/edit-article/" . $article['slug'] . "' method='post'>
+                <button type='submit'><img class='articleCardIcon' src='/media/images/editIcon.svg' alt='Edit'></button>
+            </form>
+            <form action='/delete-article/" . $article['slug'] . "' method='post'>
+                <input type='hidden' name='slug' id='slug' value='" . $article['slug'] . "'>
+                <button class='deleteButton' type='submit'><img class='articleCardIcon' src='/media/images/trashIcon.svg' alt='Delete'></button>
+            </form>
+        </span>";
+                }
+                echo "</div>";
+            }
+            echo "</div>";
         } else {
             echo "<p class='result warning'>No articles found</p>";
         }

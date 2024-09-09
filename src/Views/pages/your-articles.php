@@ -10,6 +10,7 @@ if (!isset($_SESSION['loggedin'])) {
     <title> Vostera - Your Articles </title>
     <meta name="description" content="All of the user's articles.">
     <?php include __DIR__ . '/../components/head.php'; ?>
+    <script src="/js/sortYourArticles.js" defer></script>
 </head>
 
 <body>
@@ -21,26 +22,40 @@ if (!isset($_SESSION['loggedin'])) {
         include_once __DIR__ . '/../components/sideBarMobileButton.php'; ?>
 
         <h1>Your Articles</h1>
+        <form action="" id="filterForm">
+
+            <label for="searchbarInline">Filter</label>
+            <input type="text" id="searchbarInline" autocomplete="off" placeholder="Filter by title">
+
+            <label for="category">Category</label>
+            <select name="category" id="category">
+                <option value="">Any</option>
+                <option value="history">History</option>
+                <option value="places">Places</option>
+                <option value="people">People</option>
+                <option value="items">Items</option>
+                <option value="gods">Gods</option>
+                <option value="organizations">Organizations</option>
+                <option value="plot">Plot</option>
+                <option value="statblocks">Statblocks</option>
+                <option value="meta">Meta</option>
+            </select>
+
+            <label for="sort">Sort by</label>
+            <select name="sort" id="sort">
+                <option value="alphabetical">Alphabetical</option>
+                <option value="latest">Latest</option>
+                <option value="earliest">Earliest</option>
+            </select>
+
+            <button type="submit" style="display: none">Submit</button>
+        </form>
+        <hr>
+        <div id="loadingSpinner" style="display: none;">
+            <img src="/media/images/pixelSword.png" alt="Loading..."/>
+        </div>
         <div class="allArticles">
-            <?php
-            foreach ($articles as $key => $article) {
-                echo "
-    <div class='resultCard'>
-        <a href=\"/read-article/" . $article['slug'] . "\">" . $article['title'] . "</a>";
-                if ($_SESSION['user_id'] == $article['author_id']) {
-                    echo "
-        <span>
-            <form action='/edit-article/" . $article['slug'] . "' method='post'>
-                <button type='submit'><img class='articleCardIcon' src='/media/images/editIcon.svg' alt='Edit'></button>
-            </form>
-            <form action='/delete-article/" . $article['slug'] . "' method='post'>
-                <button class='deleteButton' type='submit'><img class='articleCardIcon' src='/media/images/trashIcon.svg' alt='Delete'></button>
-            </form>
-        </span>";
-                }
-                echo "</div>";
-            }
-            ?>
+
         </div>
 
     </main>
