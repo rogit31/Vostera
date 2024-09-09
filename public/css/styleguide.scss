@@ -371,6 +371,7 @@ header {
 }
 
 .resultCard {
+  transition: 0.2s ease;
   background-color: var(--white_black);
   padding: 8px;
   border-radius: 4px;
