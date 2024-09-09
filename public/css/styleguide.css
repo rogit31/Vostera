@@ -334,6 +334,12 @@ header {
   margin: 2vw 2vw 2rem 2vw;
 }
 
+.foundArticlesWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 .resultCount {
   opacity: 0.9;
 }
