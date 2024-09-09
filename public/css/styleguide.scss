@@ -698,6 +698,10 @@ button:hover {
     color: var(--primary);
   }
 
+  a:hover {
+    color: var(--secondary);
+  }
+
   hr {
     margin: 0 0 4px;
   }
@@ -713,10 +717,6 @@ button:hover {
     text-align: center;
     font-family: var(--title-font);
     margin-bottom: 16px;
-
-    a:hover {
-      color: var(--secondary);
-    }
   }
 
   .contentPreview {
@@ -724,7 +724,7 @@ button:hover {
   }
 
   .headerPreview:hover {
-    color: var(--primary);
+    color: var(--secondary);
   }
 
   .excerptInfo {

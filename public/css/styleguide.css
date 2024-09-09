@@ -627,6 +627,9 @@ button:hover {
   font-weight: 500;
   color: var(--primary);
 }
+.itemPreview a:hover {
+  color: var(--secondary);
+}
 .itemPreview hr {
   margin: 0 0 4px;
 }
@@ -641,14 +644,11 @@ button:hover {
   font-family: var(--title-font);
   margin-bottom: 16px;
 }
-.itemPreview .headerPreview a:hover {
-  color: var(--secondary);
-}
 .itemPreview .contentPreview {
   max-width: 100%;
 }
 .itemPreview .headerPreview:hover {
-  color: var(--primary);
+  color: var(--secondary);
 }
 .itemPreview .excerptInfo {
   display: flex;
